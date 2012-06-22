@@ -89,7 +89,7 @@ component output="false" {
 		}
 		
 		var requestEnvelope = createObject("component","RequestEnvelope").init(errorLanguage);
-		var payRequest = createObject("component","PayRequest").init(requestEnvelope,actionType, returnURL, currencyCode, receiverList,cancelURL);
+		var payRequest = createObject("component","PayRequest").init(requestEnvelope,actionType, cancelURL, currencyCode, receiverList,returnURL);
 
 		if ( 	(isDefined('arguments.ipAddress') and len(trim(arguments.ipAddress))  gt 0 ) OR 
 				(isDefined('arguments.deviceId') and len(trim(arguments.deviceId)) gt 0 ) OR 
