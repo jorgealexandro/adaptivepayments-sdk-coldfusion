@@ -6,6 +6,7 @@
 		<cfinvokeargument name="senderEmail" value="platfo_1255077030_biz@gmail.com">
 		<cfinvokeargument name="receiverAmount" value="1.00">
 		<cfinvokeargument name="receiverEmail" value="platfo_1255612361_per@gmail.com">
+    <cfinvokeargument name="paymentType" value="SERVICE">
 		<cfinvokeargument name="actionType" value="PAY">
 		<cfinvokeargument name="currencyCode" value="USD">
 	</cfinvoke>
@@ -126,6 +127,10 @@
 									<td>receiverAmount</td>
 									<td>1.00</td>
 								</tr>
+                <tr>
+									<td>paymentType</td>
+									<td>SERVICE</td>
+								</tr>
 								<tr>
 									<td>actionType</td>
 									<td>PAY</td>
@@ -145,7 +150,7 @@
 					<cfif isDefined('url.seeit')>
 						<hr>
 						<h4>JSON Request</h4>
-						<script src="https://gist.github.com/1678183.js?file=gistfile1.txt"></script>
+						<script src="https://gist.github.com/4388021.js"></script>
 						
 						<h4>JSON Response</h4>
 						<script src="https://gist.github.com/1678152.js?file=gistfile1.json"></script>
@@ -234,7 +239,7 @@
 				<li id="simple2Tab">
 					
 					<h4>ColdFusion Request code</h4>
-					<script src="https://gist.github.com/1679071.js?file=gistfile1.cfm"></script>
+				<script src="https://gist.github.com/4388033.js"></script>
 					
 					<h4>ColdFusion Response code</h4>
 					<script src="https://gist.github.com/1677711.js?file=gistfile1.cfm"></script>

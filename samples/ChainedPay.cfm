@@ -7,6 +7,7 @@
 		<cfinvokeargument name="receiverAmount" value="1.00,19.00">
 		<cfinvokeargument name="receiverEmail" value="platfo_1255612361_per@gmail.com,max_1317246900_per@x.com">
 		<cfinvokeargument name="receiverPrimary" value="false,true">
+    <cfinvokeargument name="paymentType" value="SERVICE,SERVICE">
 		<cfinvokeargument name="actionType" value="PAY">
 		<cfinvokeargument name="currencyCode" value="USD">
 	</cfinvoke>
@@ -134,7 +135,10 @@
 									<td>primaryReceiver</td>
 									<td>false, true</td>
 								</tr>
-								
+								<tr>
+									<td>paymentType</td>
+									<td>SERVICE, SERVICE</td>
+								</tr>
 								<tr>
 									<td>actionType</td>
 									<td>PAY</td>
@@ -143,6 +147,7 @@
 									<td>currencyCode</td>
 									<td>USD</td>
 								</tr>
+                
 							
 							</tbody>
 						</table>
@@ -154,7 +159,7 @@
 					<cfif isDefined('url.seeit')>
 						<hr>
 						<h4>JSON Request</h4>
-						<script src="https://gist.github.com/1690349.js?file=gistfile1.json"></script>
+						<script src="https://gist.github.com/4368858.js"></script>
 						
 						<h4>JSON Response</h4>
 						<script src="https://gist.github.com/1678152.js?file=gistfile1.json"></script>
@@ -243,7 +248,7 @@
 				<li id="simple2Tab">
 					
 					<h4>ColdFusion Request code</h4>
-					<script src="https://gist.github.com/1690432.js?file=gistfile1.cfm"></script>
+					<script src="https://gist.github.com/4380166.js"></script>
 					
 					<h4>ColdFusion Response code</h4>
 					<script src="https://gist.github.com/1677711.js?file=gistfile1.cfm"></script>
