@@ -44,6 +44,8 @@
 			
 			property name="displayMaxTotalAmount"  type="boolean" display="displayMaxTotalAmount" required="no" hint="";
 			
+			property name="requireInstantFundingSource"  type="boolean" display="requireInstantFundingSource" required="no" hint="";
+			
 			
 			public PreapprovalRequest function init( RequestEnvelope requestEnvelope="", string cancelUrl="", string currencyCode="", string returnUrl="", string startingDate="")
 				hint="I initialize the component and return myself" 
@@ -296,6 +298,17 @@
 			} 
 			
 			
+			public void function setrequireInstantFundingSource(boolean requireInstantFundingSource)
+			{
+				this.requireInstantFundingSource = arguments.requireInstantFundingSource;
+			}  
+				
+			public boolean function getrequireInstantFundingSource()
+			{
+				return this.requireInstantFundingSource;
+			} 
+			
+			
 			
 			public struct function getStruct()
 			{
@@ -384,6 +397,10 @@
 				if(  isDefined( 'this.displayMaxTotalAmount' ) )
 					
 						local.struct["displayMaxTotalAmount"] = getdisplayMaxTotalAmount();
+					
+				if(  isDefined( 'this.requireInstantFundingSource' ) )
+					
+						local.struct["requireInstantFundingSource"] = getrequireInstantFundingSource();
 					
 				return local.struct;
 			} 
@@ -520,6 +537,11 @@
 							this.setdisplayMaxTotalAmount(local.json[key]);
 						}
 						
+						if('#key#' eq 'requireInstantFundingSource') {
+						
+							this.setrequireInstantFundingSource(local.json[key]);
+						}
+						
 						
 						if('#key#' eq 'error')
 						{	
@@ -575,6 +597,8 @@
 							this.setfeesPayer(local.json[i]);
 							
 							this.setdisplayMaxTotalAmount(local.json[i]);
+							
+							this.setrequireInstantFundingSource(local.json[i]);
 							
 						}
 					
@@ -731,6 +755,13 @@
 							if('#key#' eq 'displayMaxTotalAmount') {
 							
 								this.setdisplayMaxTotalAmount(local.json[i][key]);
+							
+							}
+											
+							
+							if('#key#' eq 'requireInstantFundingSource') {
+							
+								this.setrequireInstantFundingSource(local.json[i][key]);
 							
 							}
 											

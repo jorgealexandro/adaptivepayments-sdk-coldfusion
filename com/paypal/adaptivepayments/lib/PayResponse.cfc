@@ -14,6 +14,8 @@
 			
 			property name="defaultFundingPlan"  type="FundingPlan" display="defaultFundingPlan" required="no" hint="";
 			
+			property name="warningDataList"  type="WarningDataList" display="warningDataList" required="no" hint="";
+			
 			
 			public PayResponse function init( ResponseEnvelope responseEnvelope="", string payKey="", string paymentExecStatus="")
 				hint="I initialize the component and return myself" 
@@ -97,6 +99,17 @@
 			} 
 			
 			
+			public void function setwarningDataList(WarningDataList warningDataList)
+			{
+				this.warningDataList = arguments.warningDataList;
+			}  
+				
+			public WarningDataList function getwarningDataList()
+			{
+				return this.warningDataList;
+			} 
+			
+			
 			
 			public struct function getStruct()
 			{
@@ -125,6 +138,10 @@
 				if(  isDefined( 'this.defaultFundingPlan' ) )
 					
 						local.struct["defaultFundingPlan"] = getdefaultFundingPlan().getStruct();
+					
+				if(  isDefined( 'this.warningDataList' ) )
+					
+						local.struct["warningDataList"] = getwarningDataList().getStruct();
 					
 				return local.struct;
 			} 
@@ -191,6 +208,15 @@
 							
 						}
 						
+						if('#key#' eq 'warningDataList') {
+						
+							var keyCom = 'warningDataList';
+							
+							var keyObj = createObject("component",'#keyCom#');
+							this.setwarningDataList( keyObj.deserialize(local.json[key]) );
+							
+						}
+						
 						
 						if('#key#' eq 'error')
 						{	
@@ -216,6 +242,8 @@
 							this.setpayErrorList(local.json[i]);
 							
 							this.setdefaultFundingPlan(local.json[i]);
+							
+							this.setwarningDataList(local.json[i]);
 							
 						}
 					
@@ -267,6 +295,17 @@
 								
 								var keyObj = createObject("component",'#keyCom#');
 								this.setdefaultFundingPlan( keyObj.deserialize(local.json[i][key]) );
+								
+							}
+											
+							
+							if('#key#' eq 'warningDataList') {
+							
+                             var keyCom = 'warningDataList';
+								
+								
+								var keyObj = createObject("component",'#keyCom#');
+								this.setwarningDataList( keyObj.deserialize(local.json[i][key]) );
 								
 							}
 											

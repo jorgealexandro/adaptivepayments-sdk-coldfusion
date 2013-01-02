@@ -6,6 +6,8 @@
 			
 			property name="useCredentials"  type="boolean" display="useCredentials" required="no" hint="";
 			
+			property name="taxIdDetails"  type="boolean" display="taxIdDetails" required="no" hint="";
+			
 			property name="AccountIdentifier"  type="AccountIdentifier" display="AccountIdentifier" required="no" hint="";
 			
 			
@@ -41,6 +43,17 @@
 			} 
 			
 			
+			public void function settaxIdDetails(boolean taxIdDetails)
+			{
+				this.taxIdDetails = arguments.taxIdDetails;
+			}  
+				
+			public boolean function gettaxIdDetails()
+			{
+				return this.taxIdDetails;
+			} 
+			
+			
 			public void function setAccountIdentifier(AccountIdentifier AccountIdentifier)
 			{
 				this.AccountIdentifier = arguments.AccountIdentifier;
@@ -64,6 +77,10 @@
 				if(  isDefined( 'this.useCredentials' ) )
 					
 						local.struct["useCredentials"] = getuseCredentials();
+					
+				if(  isDefined( 'this.taxIdDetails' ) )
+					
+						local.struct["taxIdDetails"] = gettaxIdDetails();
 					
 				if(  isDefined( 'this.AccountIdentifier' ) )
 					
@@ -97,6 +114,11 @@
 							this.setuseCredentials(local.json[key]);
 						}
 						
+						if('#key#' eq 'taxIdDetails') {
+						
+							this.settaxIdDetails(local.json[key]);
+						}
+						
 						if('#key#' eq 'AccountIdentifier') {
 						
 							var keyCom = 'AccountIdentifier';
@@ -124,6 +146,8 @@
 							
 							this.setuseCredentials(local.json[i]);
 							
+							this.settaxIdDetails(local.json[i]);
+							
 							this.setAccountIdentifier(local.json[i]);
 							
 						}
@@ -136,6 +160,13 @@
 							if('#key#' eq 'useCredentials') {
 							
 								this.setuseCredentials(local.json[i][key]);
+							
+							}
+											
+							
+							if('#key#' eq 'taxIdDetails') {
+							
+								this.settaxIdDetails(local.json[i][key]);
 							
 							}
 											
