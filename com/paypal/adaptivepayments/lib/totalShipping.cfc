@@ -1,11 +1,10 @@
-
 <cfscript>
 component name="InvoiceData" output="false"  hint="I define the properties and methods"
 {
 
 	
 	property name="item"  type="InvoiceItem" display="item" required="no" hint="";
-	variables.items= ArrayNew(1); 
+	 
 	property name="totalTax"  type="numeric" display="totalTax" required="no" hint="";
 	
 	property name="totalShipping"  type="numeric" display="totalShipping" required="no" hint="";
@@ -15,7 +14,7 @@ component name="InvoiceData" output="false"  hint="I define the properties and m
 		hint="I initialize the component and return myself" 
 	 	output="false" {
 		
-		
+		variables.items = ArrayNew(1);
 		
 		
 		return this;  
