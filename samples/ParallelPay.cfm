@@ -5,8 +5,8 @@
 		<cfinvokeargument name="cancelURL" value="#request.serverURL##GetDirectoryFromPath(SCRIPT_NAME)#SimplePay.cfm">
 		<cfinvokeargument name="senderEmail" value="platfo_1255077030_biz@gmail.com">
 		<cfinvokeargument name="receiverAmount" value="1.00,19.00">
-		<cfinvokeargument name="receiverPaymentType" value="platfo_1255612361_per@gmail.com,max_1317246900_per@x.com">
-    <cfinvokeargument name="paymentType" value="SERVICE,SERVICE">
+		<cfinvokeargument name="receiverEmail" value="platfo_1255612361_per@gmail.com,max_1317246900_per@x.com">
+		<cfinvokeargument name="receiverPaymentType" value="SERVICE,SERVICE">
 		<cfinvokeargument name="actionType" value="PAY">
 		<cfinvokeargument name="currencyCode" value="USD">
 	</cfinvoke>

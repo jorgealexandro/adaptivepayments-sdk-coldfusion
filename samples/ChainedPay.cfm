@@ -7,7 +7,7 @@
 		<cfinvokeargument name="receiverAmount" value="1.00,19.00">
 		<cfinvokeargument name="receiverEmail" value="platfo_1255612361_per@gmail.com,max_1317246900_per@x.com">
 		<cfinvokeargument name="receiverPrimary" value="false,true">
-    <cfinvokeargument name="paymentType" value="SERVICE,SERVICE">
+		<cfinvokeargument name="receiverPaymentType" value="SERVICE,SERVICE">
 		<cfinvokeargument name="actionType" value="PAY">
 		<cfinvokeargument name="currencyCode" value="USD">
 	</cfinvoke>
