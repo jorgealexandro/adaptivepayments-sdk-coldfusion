@@ -18,14 +18,34 @@
 			
 			property name="paymentSubType"  type="string" display="paymentSubType" required="no" hint="";
 			
+			property name="accountId"  type="string" display="accountId" required="no" hint="";
 			
-			public Receiver function init( numeric amount="")
+			
+			
+			public Receiver function init(  numeric amount="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setamount(arguments.amount);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -53,6 +73,7 @@
 			} 
 			
 			
+			
 			public void function setemail(string email)
 			{
 				this.email = arguments.email;
@@ -62,6 +83,7 @@
 			{
 				return this.email;
 			} 
+			
 			
 			
 			public void function setphone(PhoneNumberType phone)
@@ -75,6 +97,7 @@
 			} 
 			
 			
+			
 			public void function setprimary(boolean primary)
 			{
 				this.primary = arguments.primary;
@@ -84,6 +107,7 @@
 			{
 				return this.primary;
 			} 
+			
 			
 			
 			public void function setinvoiceId(string invoiceId)
@@ -97,6 +121,7 @@
 			} 
 			
 			
+			
 			public void function setpaymentType(string paymentType)
 			{
 				this.paymentType = arguments.paymentType;
@@ -108,6 +133,7 @@
 			} 
 			
 			
+			
 			public void function setpaymentSubType(string paymentSubType)
 			{
 				this.paymentSubType = arguments.paymentSubType;
@@ -117,6 +143,19 @@
 			{
 				return this.paymentSubType;
 			} 
+			
+			
+			
+			public void function setaccountId(string accountId)
+			{
+				this.accountId = arguments.accountId;
+			}  
+				
+			public string function getaccountId()
+			{
+				return this.accountId;
+			} 
+			
 			
 			
 			
@@ -132,30 +171,50 @@
 					
 						local.struct["amount"] = getamount();
 					
+						
+				
 				if(  isDefined( 'this.email' ) )
 					
 						local.struct["email"] = getemail();
 					
+						
+				
 				if(  isDefined( 'this.phone' ) )
 					
 						local.struct["phone"] = getphone().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.primary' ) )
 					
 						local.struct["primary"] = getprimary();
 					
+						
+				
 				if(  isDefined( 'this.invoiceId' ) )
 					
 						local.struct["invoiceId"] = getinvoiceId();
 					
+						
+				
 				if(  isDefined( 'this.paymentType' ) )
 					
 						local.struct["paymentType"] = getpaymentType();
 					
+						
+				
 				if(  isDefined( 'this.paymentSubType' ) )
 					
 						local.struct["paymentSubType"] = getpaymentSubType();
 					
+						
+				
+				if(  isDefined( 'this.accountId' ) )
+					
+						local.struct["accountId"] = getaccountId();
+					
+						
+				
 				return local.struct;
 			} 
 			
@@ -179,43 +238,66 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'amount') {
 						
 							this.setamount(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'email') {
 						
 							this.setemail(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'phone') {
 						
 							var keyCom = 'phone';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setphone( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'primary') {
 						
 							this.setprimary(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'invoiceId') {
 						
 							this.setinvoiceId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'paymentType') {
 						
 							this.setpaymentType(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'paymentSubType') {
 						
 							this.setpaymentSubType(local.json[key]);
+						}
+						
+						
+						
+						if('#key#' eq 'accountId') {
+						
+							this.setaccountId(local.json[key]);
 						}
 						
 						
@@ -248,12 +330,16 @@
 							
 							this.setpaymentSubType(local.json[i]);
 							
+							this.setaccountId(local.json[i]);
+							
 						}
 					
 						if(isStruct(local.json[i]))
 						{
 							for(key in local.json[i])
 							{
+							
+							
 							
 							if('#key#' eq 'amount') {
 							
@@ -262,12 +348,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'email') {
 							
 								this.setemail(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'phone') {
 							
@@ -277,8 +367,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setphone( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'primary') {
 							
@@ -287,12 +381,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'invoiceId') {
 							
 								this.setinvoiceId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'paymentType') {
 							
@@ -301,9 +399,20 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'paymentSubType') {
 							
 								this.setpaymentSubType(local.json[i][key]);
+							
+							}
+											
+							
+							
+							
+							if('#key#' eq 'accountId') {
+							
+								this.setaccountId(local.json[i][key]);
 							
 							}
 											

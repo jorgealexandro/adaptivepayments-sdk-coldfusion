@@ -15,19 +15,32 @@
 			property name="build"  type="string" display="build" required="yes" hint="";
 			
 			
-			public ResponseEnvelope function init( string timestamp="", AckCode ack="", string correlationId="", string build="")
+			
+			public ResponseEnvelope function init(  string timestamp="", AckCode ack="", string correlationId="", string build="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.settimestamp(arguments.timestamp);
 					
+				
+				
+				
 						this.setack(arguments.ack);
 					
+				
+				
+				
 						this.setcorrelationId(arguments.correlationId);
 					
+				
+				
+				
 						this.setbuild(arguments.build);
 					
+				
+				
 				
 				
 				return this;  
@@ -55,6 +68,7 @@
 			} 
 			
 			
+			
 			public void function setack(AckCode ack)
 			{
 				this.ack = arguments.ack;
@@ -64,6 +78,7 @@
 			{
 				return this.ack;
 			} 
+			
 			
 			
 			public void function setcorrelationId(string correlationId)
@@ -77,6 +92,7 @@
 			} 
 			
 			
+			
 			public void function setbuild(string build)
 			{
 				this.build = arguments.build;
@@ -86,6 +102,7 @@
 			{
 				return this.build;
 			} 
+			
 			
 			
 			
@@ -101,18 +118,26 @@
 					
 						local.struct["timestamp"] = gettimestamp();
 					
+						
+				
 				if(  isDefined( 'this.ack' ) )
 					
 						local.struct["ack"] = getack().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.correlationId' ) )
 					
 						local.struct["correlationId"] = getcorrelationId();
 					
+						
+				
 				if(  isDefined( 'this.build' ) )
 					
 						local.struct["build"] = getbuild();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -136,25 +161,35 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'timestamp') {
 						
 							this.settimestamp(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'ack') {
 						
 							var keyCom = 'ack';
 							
-							keyCom = 'ackCode'; 
+							keyCom = 'ackCode';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setack( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'correlationId') {
 						
 							this.setcorrelationId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'build') {
 						
@@ -192,12 +227,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'timestamp') {
 							
 								this.settimestamp(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'ack') {
 							
@@ -208,8 +247,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setack( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'correlationId') {
 							
@@ -217,6 +260,8 @@
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'build') {
 							

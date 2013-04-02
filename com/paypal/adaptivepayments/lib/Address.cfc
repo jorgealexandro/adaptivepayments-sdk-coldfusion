@@ -11,13 +11,21 @@
 			property name="addressId"  type="string" display="addressId" required="no" hint="";
 			
 			
-			public Address function init( BaseAddress baseAddress="")
+			
+			public Address function init(  BaseAddress baseAddress="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
+				
+				
 						this.setbaseAddress(arguments.baseAddress);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -45,6 +53,7 @@
 			} 
 			
 			
+			
 			public void function setbaseAddress(BaseAddress baseAddress)
 			{
 				this.baseAddress = arguments.baseAddress;
@@ -56,6 +65,7 @@
 			} 
 			
 			
+			
 			public void function setaddressId(string addressId)
 			{
 				this.addressId = arguments.addressId;
@@ -65,6 +75,7 @@
 			{
 				return this.addressId;
 			} 
+			
 			
 			
 			
@@ -80,14 +91,20 @@
 					
 						local.struct["addresseeName"] = getaddresseeName();
 					
+						
+				
 				if(  isDefined( 'this.baseAddress' ) )
 					
 						local.struct["baseAddress"] = getbaseAddress().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.addressId' ) )
 					
 						local.struct["addressId"] = getaddressId();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -111,19 +128,27 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'addresseeName') {
 						
 							this.setaddresseeName(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'baseAddress') {
 						
 							var keyCom = 'baseAddress';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setbaseAddress( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'addressId') {
 						
@@ -159,12 +184,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'addresseeName') {
 							
 								this.setaddresseeName(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'baseAddress') {
 							
@@ -174,8 +203,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setbaseAddress( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'addressId') {
 							

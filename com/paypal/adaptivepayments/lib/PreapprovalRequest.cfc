@@ -46,22 +46,74 @@
 			
 			property name="requireInstantFundingSource"  type="boolean" display="requireInstantFundingSource" required="no" hint="";
 			
+			property name="sender"  type="SenderIdentifier" display="sender" required="no" hint="";
 			
-			public PreapprovalRequest function init( RequestEnvelope requestEnvelope="", string cancelUrl="", string currencyCode="", string returnUrl="", string startingDate="")
+			
+			
+			public PreapprovalRequest function init(  RequestEnvelope requestEnvelope="", string cancelUrl="", string currencyCode="", string returnUrl="", string startingDate="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
+				
+				
 						this.setcancelUrl(arguments.cancelUrl);
 					
+				
+				
+				
 						this.setcurrencyCode(arguments.currencyCode);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 						this.setreturnUrl(arguments.returnUrl);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
 						this.setstartingDate(arguments.startingDate);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -89,6 +141,7 @@
 			} 
 			
 			
+			
 			public void function setclientDetails(ClientDetailsType clientDetails)
 			{
 				this.clientDetails = arguments.clientDetails;
@@ -98,6 +151,7 @@
 			{
 				return this.clientDetails;
 			} 
+			
 			
 			
 			public void function setcancelUrl(string cancelUrl)
@@ -111,6 +165,7 @@
 			} 
 			
 			
+			
 			public void function setcurrencyCode(string currencyCode)
 			{
 				this.currencyCode = arguments.currencyCode;
@@ -120,6 +175,7 @@
 			{
 				return this.currencyCode;
 			} 
+			
 			
 			
 			public void function setdateOfMonth(numeric dateOfMonth)
@@ -133,6 +189,7 @@
 			} 
 			
 			
+			
 			public void function setdayOfWeek(DayOfWeek dayOfWeek)
 			{
 				this.dayOfWeek = arguments.dayOfWeek;
@@ -142,6 +199,7 @@
 			{
 				return this.dayOfWeek;
 			} 
+			
 			
 			
 			public void function setendingDate(string endingDate)
@@ -155,6 +213,7 @@
 			} 
 			
 			
+			
 			public void function setmaxAmountPerPayment(numeric maxAmountPerPayment)
 			{
 				this.maxAmountPerPayment = arguments.maxAmountPerPayment;
@@ -164,6 +223,7 @@
 			{
 				return this.maxAmountPerPayment;
 			} 
+			
 			
 			
 			public void function setmaxNumberOfPayments(numeric maxNumberOfPayments)
@@ -177,6 +237,7 @@
 			} 
 			
 			
+			
 			public void function setmaxNumberOfPaymentsPerPeriod(numeric maxNumberOfPaymentsPerPeriod)
 			{
 				this.maxNumberOfPaymentsPerPeriod = arguments.maxNumberOfPaymentsPerPeriod;
@@ -186,6 +247,7 @@
 			{
 				return this.maxNumberOfPaymentsPerPeriod;
 			} 
+			
 			
 			
 			public void function setmaxTotalAmountOfAllPayments(numeric maxTotalAmountOfAllPayments)
@@ -199,6 +261,7 @@
 			} 
 			
 			
+			
 			public void function setpaymentPeriod(string paymentPeriod)
 			{
 				this.paymentPeriod = arguments.paymentPeriod;
@@ -208,6 +271,7 @@
 			{
 				return this.paymentPeriod;
 			} 
+			
 			
 			
 			public void function setreturnUrl(string returnUrl)
@@ -221,6 +285,7 @@
 			} 
 			
 			
+			
 			public void function setmemo(string memo)
 			{
 				this.memo = arguments.memo;
@@ -230,6 +295,7 @@
 			{
 				return this.memo;
 			} 
+			
 			
 			
 			public void function setipnNotificationUrl(string ipnNotificationUrl)
@@ -243,6 +309,7 @@
 			} 
 			
 			
+			
 			public void function setsenderEmail(string senderEmail)
 			{
 				this.senderEmail = arguments.senderEmail;
@@ -252,6 +319,7 @@
 			{
 				return this.senderEmail;
 			} 
+			
 			
 			
 			public void function setstartingDate(string startingDate)
@@ -265,6 +333,7 @@
 			} 
 			
 			
+			
 			public void function setpinType(string pinType)
 			{
 				this.pinType = arguments.pinType;
@@ -274,6 +343,7 @@
 			{
 				return this.pinType;
 			} 
+			
 			
 			
 			public void function setfeesPayer(string feesPayer)
@@ -287,6 +357,7 @@
 			} 
 			
 			
+			
 			public void function setdisplayMaxTotalAmount(boolean displayMaxTotalAmount)
 			{
 				this.displayMaxTotalAmount = arguments.displayMaxTotalAmount;
@@ -298,6 +369,7 @@
 			} 
 			
 			
+			
 			public void function setrequireInstantFundingSource(boolean requireInstantFundingSource)
 			{
 				this.requireInstantFundingSource = arguments.requireInstantFundingSource;
@@ -307,6 +379,19 @@
 			{
 				return this.requireInstantFundingSource;
 			} 
+			
+			
+			
+			public void function setsender(SenderIdentifier sender)
+			{
+				this.sender = arguments.sender;
+			}  
+				
+			public SenderIdentifier function getsender()
+			{
+				return this.sender;
+			} 
+			
 			
 			
 			
@@ -322,86 +407,134 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.clientDetails' ) )
 					
 						local.struct["clientDetails"] = getclientDetails().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.cancelUrl' ) )
 					
 						local.struct["cancelUrl"] = getcancelUrl();
 					
+						
+				
 				if(  isDefined( 'this.currencyCode' ) )
 					
 						local.struct["currencyCode"] = getcurrencyCode();
 					
+						
+				
 				if(  isDefined( 'this.dateOfMonth' ) )
 					
 						local.struct["dateOfMonth"] = getdateOfMonth();
 					
+						
+				
 				if(  isDefined( 'this.dayOfWeek' ) )
 					
 						local.struct["dayOfWeek"] = getdayOfWeek().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.endingDate' ) )
 					
 						local.struct["endingDate"] = getendingDate();
 					
+						
+				
 				if(  isDefined( 'this.maxAmountPerPayment' ) )
 					
 						local.struct["maxAmountPerPayment"] = getmaxAmountPerPayment();
 					
+						
+				
 				if(  isDefined( 'this.maxNumberOfPayments' ) )
 					
 						local.struct["maxNumberOfPayments"] = getmaxNumberOfPayments();
 					
+						
+				
 				if(  isDefined( 'this.maxNumberOfPaymentsPerPeriod' ) )
 					
 						local.struct["maxNumberOfPaymentsPerPeriod"] = getmaxNumberOfPaymentsPerPeriod();
 					
+						
+				
 				if(  isDefined( 'this.maxTotalAmountOfAllPayments' ) )
 					
 						local.struct["maxTotalAmountOfAllPayments"] = getmaxTotalAmountOfAllPayments();
 					
+						
+				
 				if(  isDefined( 'this.paymentPeriod' ) )
 					
 						local.struct["paymentPeriod"] = getpaymentPeriod();
 					
+						
+				
 				if(  isDefined( 'this.returnUrl' ) )
 					
 						local.struct["returnUrl"] = getreturnUrl();
 					
+						
+				
 				if(  isDefined( 'this.memo' ) )
 					
 						local.struct["memo"] = getmemo();
 					
+						
+				
 				if(  isDefined( 'this.ipnNotificationUrl' ) )
 					
 						local.struct["ipnNotificationUrl"] = getipnNotificationUrl();
 					
+						
+				
 				if(  isDefined( 'this.senderEmail' ) )
 					
 						local.struct["senderEmail"] = getsenderEmail();
 					
+						
+				
 				if(  isDefined( 'this.startingDate' ) )
 					
 						local.struct["startingDate"] = getstartingDate();
 					
+						
+				
 				if(  isDefined( 'this.pinType' ) )
 					
 						local.struct["pinType"] = getpinType();
 					
+						
+				
 				if(  isDefined( 'this.feesPayer' ) )
 					
 						local.struct["feesPayer"] = getfeesPayer();
 					
+						
+				
 				if(  isDefined( 'this.displayMaxTotalAmount' ) )
 					
 						local.struct["displayMaxTotalAmount"] = getdisplayMaxTotalAmount();
 					
+						
+				
 				if(  isDefined( 'this.requireInstantFundingSource' ) )
 					
 						local.struct["requireInstantFundingSource"] = getrequireInstantFundingSource();
 					
+						
+				
+				if(  isDefined( 'this.sender' ) )
+					
+						local.struct["sender"] = getsender().getStruct();
+					
+						
+				
 				return local.struct;
 			} 
 			
@@ -425,121 +558,183 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'clientDetails') {
 						
 							var keyCom = 'clientDetails';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setclientDetails( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'cancelUrl') {
 						
 							this.setcancelUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'currencyCode') {
 						
 							this.setcurrencyCode(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'dateOfMonth') {
 						
 							this.setdateOfMonth(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'dayOfWeek') {
 						
 							var keyCom = 'dayOfWeek';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setdayOfWeek( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'endingDate') {
 						
 							this.setendingDate(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'maxAmountPerPayment') {
 						
 							this.setmaxAmountPerPayment(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'maxNumberOfPayments') {
 						
 							this.setmaxNumberOfPayments(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'maxNumberOfPaymentsPerPeriod') {
 						
 							this.setmaxNumberOfPaymentsPerPeriod(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'maxTotalAmountOfAllPayments') {
 						
 							this.setmaxTotalAmountOfAllPayments(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'paymentPeriod') {
 						
 							this.setpaymentPeriod(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'returnUrl') {
 						
 							this.setreturnUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'memo') {
 						
 							this.setmemo(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'ipnNotificationUrl') {
 						
 							this.setipnNotificationUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'senderEmail') {
 						
 							this.setsenderEmail(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'startingDate') {
 						
 							this.setstartingDate(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'pinType') {
 						
 							this.setpinType(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'feesPayer') {
 						
 							this.setfeesPayer(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'displayMaxTotalAmount') {
 						
 							this.setdisplayMaxTotalAmount(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'requireInstantFundingSource') {
 						
 							this.setrequireInstantFundingSource(local.json[key]);
+						}
+						
+						
+						
+						if('#key#' eq 'sender') {
+						
+							var keyCom = 'sender';
+							
+							keyCom = 'SenderIdentifier';
+							
+							
+							var keyObj = createObject("component",'#keyCom#');
+							this.setsender( keyObj.deserialize(local.json[key]) );
+							
 						}
 						
 						
@@ -600,12 +795,16 @@
 							
 							this.setrequireInstantFundingSource(local.json[i]);
 							
+							this.setsender(local.json[i]);
+							
 						}
 					
 						if(isStruct(local.json[i]))
 						{
 							for(key in local.json[i])
 							{
+							
+							
 							
 							if('#key#' eq 'requestEnvelope') {
 							
@@ -615,8 +814,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'clientDetails') {
 							
@@ -626,8 +829,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setclientDetails( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'cancelUrl') {
 							
@@ -636,6 +843,8 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'currencyCode') {
 							
 								this.setcurrencyCode(local.json[i][key]);
@@ -643,12 +852,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'dateOfMonth') {
 							
 								this.setdateOfMonth(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'dayOfWeek') {
 							
@@ -658,8 +871,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setdayOfWeek( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'endingDate') {
 							
@@ -668,12 +885,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'maxAmountPerPayment') {
 							
 								this.setmaxAmountPerPayment(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'maxNumberOfPayments') {
 							
@@ -682,12 +903,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'maxNumberOfPaymentsPerPeriod') {
 							
 								this.setmaxNumberOfPaymentsPerPeriod(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'maxTotalAmountOfAllPayments') {
 							
@@ -696,12 +921,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'paymentPeriod') {
 							
 								this.setpaymentPeriod(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'returnUrl') {
 							
@@ -710,12 +939,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'memo') {
 							
 								this.setmemo(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'ipnNotificationUrl') {
 							
@@ -724,12 +957,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'senderEmail') {
 							
 								this.setsenderEmail(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'startingDate') {
 							
@@ -738,12 +975,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'pinType') {
 							
 								this.setpinType(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'feesPayer') {
 							
@@ -752,6 +993,8 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'displayMaxTotalAmount') {
 							
 								this.setdisplayMaxTotalAmount(local.json[i][key]);
@@ -759,9 +1002,27 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'requireInstantFundingSource') {
 							
 								this.setrequireInstantFundingSource(local.json[i][key]);
+							
+							}
+											
+							
+							
+							
+							if('#key#' eq 'sender') {
+							
+                             var keyCom = 'sender';
+								
+								keyCom = 'SenderIdentifier';
+								
+								var keyObj = createObject("component",'#keyCom#');
+								this.setsender( keyObj.deserialize(local.json[i][key]) );
+								
+							
 							
 							}
 											

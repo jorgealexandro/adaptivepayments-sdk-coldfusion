@@ -37,23 +37,44 @@
 			property name="email"  type="string" display="email" required="no" hint="";
 			
 			
-			public InstitutionCustomer function init( string institutionId="", string firstName="", string lastName="", string displayName="", string institutionCustomerId="", string countryCode="")
+			
+			public InstitutionCustomer function init(  string institutionId="", string firstName="", string lastName="", string displayName="", string institutionCustomerId="", string countryCode="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setinstitutionId(arguments.institutionId);
 					
+				
+				
+				
 						this.setfirstName(arguments.firstName);
 					
+				
+				
+				
 						this.setlastName(arguments.lastName);
 					
+				
+				
+				
 						this.setdisplayName(arguments.displayName);
 					
+				
+				
+				
 						this.setinstitutionCustomerId(arguments.institutionCustomerId);
 					
+				
+				
+				
 						this.setcountryCode(arguments.countryCode);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -81,6 +102,7 @@
 			} 
 			
 			
+			
 			public void function setfirstName(string firstName)
 			{
 				this.firstName = arguments.firstName;
@@ -90,6 +112,7 @@
 			{
 				return this.firstName;
 			} 
+			
 			
 			
 			public void function setlastName(string lastName)
@@ -103,6 +126,7 @@
 			} 
 			
 			
+			
 			public void function setdisplayName(string displayName)
 			{
 				this.displayName = arguments.displayName;
@@ -112,6 +136,7 @@
 			{
 				return this.displayName;
 			} 
+			
 			
 			
 			public void function setinstitutionCustomerId(string institutionCustomerId)
@@ -125,6 +150,7 @@
 			} 
 			
 			
+			
 			public void function setcountryCode(string countryCode)
 			{
 				this.countryCode = arguments.countryCode;
@@ -136,6 +162,7 @@
 			} 
 			
 			
+			
 			public void function setemail(string email)
 			{
 				this.email = arguments.email;
@@ -145,6 +172,7 @@
 			{
 				return this.email;
 			} 
+			
 			
 			
 			
@@ -160,30 +188,44 @@
 					
 						local.struct["institutionId"] = getinstitutionId();
 					
+						
+				
 				if(  isDefined( 'this.firstName' ) )
 					
 						local.struct["firstName"] = getfirstName();
 					
+						
+				
 				if(  isDefined( 'this.lastName' ) )
 					
 						local.struct["lastName"] = getlastName();
 					
+						
+				
 				if(  isDefined( 'this.displayName' ) )
 					
 						local.struct["displayName"] = getdisplayName();
 					
+						
+				
 				if(  isDefined( 'this.institutionCustomerId' ) )
 					
 						local.struct["institutionCustomerId"] = getinstitutionCustomerId();
 					
+						
+				
 				if(  isDefined( 'this.countryCode' ) )
 					
 						local.struct["countryCode"] = getcountryCode();
 					
+						
+				
 				if(  isDefined( 'this.email' ) )
 					
 						local.struct["email"] = getemail();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -207,35 +249,49 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'institutionId') {
 						
 							this.setinstitutionId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'firstName') {
 						
 							this.setfirstName(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'lastName') {
 						
 							this.setlastName(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'displayName') {
 						
 							this.setdisplayName(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'institutionCustomerId') {
 						
 							this.setinstitutionCustomerId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'countryCode') {
 						
 							this.setcountryCode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'email') {
 						
@@ -279,12 +335,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'institutionId') {
 							
 								this.setinstitutionId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'firstName') {
 							
@@ -293,12 +353,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'lastName') {
 							
 								this.setlastName(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'displayName') {
 							
@@ -307,6 +371,8 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'institutionCustomerId') {
 							
 								this.setinstitutionCustomerId(local.json[i][key]);
@@ -314,12 +380,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'countryCode') {
 							
 								this.setcountryCode(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'email') {
 							

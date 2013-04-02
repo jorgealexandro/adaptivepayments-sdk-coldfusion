@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="warningData"  type="WarningData" display="warningData" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public WarningDataList function init( WarningData warningData="")
+			public WarningDataList function init(  WarningData warningData="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setwarningData(arguments.warningData);
 					
 						addItem(arguments.warningData);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["warningData"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,9 +108,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'warningData') {
 						
 							var keyCom = 'warningData';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setwarningData( keyObj.deserialize(local.json[key]) );
@@ -136,6 +147,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'warningData') {
 							
                              var keyCom = 'warningData';
@@ -146,6 +159,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

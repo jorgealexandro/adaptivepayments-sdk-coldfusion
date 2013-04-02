@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="payError"  type="PayError" display="payError" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public PayErrorList function init( PayError payError="")
+			public PayErrorList function init(  PayError payError="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setpayError(arguments.payError);
 					
 						addItem(arguments.payError);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["payError"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,14 +108,18 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'payError') {
 						
 							var keyCom = 'payError';
+							
 							
 							if(keyCom eq 'payError')
 								errorStruct = StructNew();
 								errorStruct['error'] = local.json[key];
 								local.json[key] = errorStruct;	
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setpayError( keyObj.deserialize(local.json[key]) );
@@ -141,6 +152,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'payError') {
 							
                              var keyCom = 'payError';
@@ -151,6 +164,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

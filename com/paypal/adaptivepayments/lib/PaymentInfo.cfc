@@ -21,13 +21,31 @@
 			property name="pendingReason"  type="string" display="pendingReason" required="no" hint="";
 			
 			
-			public PaymentInfo function init( Receiver receiver="")
+			
+			public PaymentInfo function init(  Receiver receiver="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
+				
+				
+				
+				
 						this.setreceiver(arguments.receiver);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -55,6 +73,7 @@
 			} 
 			
 			
+			
 			public void function settransactionStatus(string transactionStatus)
 			{
 				this.transactionStatus = arguments.transactionStatus;
@@ -64,6 +83,7 @@
 			{
 				return this.transactionStatus;
 			} 
+			
 			
 			
 			public void function setreceiver(Receiver receiver)
@@ -77,6 +97,7 @@
 			} 
 			
 			
+			
 			public void function setrefundedAmount(numeric refundedAmount)
 			{
 				this.refundedAmount = arguments.refundedAmount;
@@ -86,6 +107,7 @@
 			{
 				return this.refundedAmount;
 			} 
+			
 			
 			
 			public void function setpendingRefund(boolean pendingRefund)
@@ -99,6 +121,7 @@
 			} 
 			
 			
+			
 			public void function setsenderTransactionId(string senderTransactionId)
 			{
 				this.senderTransactionId = arguments.senderTransactionId;
@@ -108,6 +131,7 @@
 			{
 				return this.senderTransactionId;
 			} 
+			
 			
 			
 			public void function setsenderTransactionStatus(string senderTransactionStatus)
@@ -121,6 +145,7 @@
 			} 
 			
 			
+			
 			public void function setpendingReason(string pendingReason)
 			{
 				this.pendingReason = arguments.pendingReason;
@@ -130,6 +155,7 @@
 			{
 				return this.pendingReason;
 			} 
+			
 			
 			
 			
@@ -145,34 +171,50 @@
 					
 						local.struct["transactionId"] = gettransactionId();
 					
+						
+				
 				if(  isDefined( 'this.transactionStatus' ) )
 					
 						local.struct["transactionStatus"] = gettransactionStatus();
 					
+						
+				
 				if(  isDefined( 'this.receiver' ) )
 					
 						local.struct["receiver"] = getreceiver().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.refundedAmount' ) )
 					
 						local.struct["refundedAmount"] = getrefundedAmount();
 					
+						
+				
 				if(  isDefined( 'this.pendingRefund' ) )
 					
 						local.struct["pendingRefund"] = getpendingRefund();
 					
+						
+				
 				if(  isDefined( 'this.senderTransactionId' ) )
 					
 						local.struct["senderTransactionId"] = getsenderTransactionId();
 					
+						
+				
 				if(  isDefined( 'this.senderTransactionStatus' ) )
 					
 						local.struct["senderTransactionStatus"] = getsenderTransactionStatus();
 					
+						
+				
 				if(  isDefined( 'this.pendingReason' ) )
 					
 						local.struct["pendingReason"] = getpendingReason();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -196,44 +238,62 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'transactionId') {
 						
 							this.settransactionId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'transactionStatus') {
 						
 							this.settransactionStatus(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'receiver') {
 						
 							var keyCom = 'receiver';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiver( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'refundedAmount') {
 						
 							this.setrefundedAmount(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'pendingRefund') {
 						
 							this.setpendingRefund(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'senderTransactionId') {
 						
 							this.setsenderTransactionId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'senderTransactionStatus') {
 						
 							this.setsenderTransactionStatus(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'pendingReason') {
 						
@@ -279,6 +339,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'transactionId') {
 							
 								this.settransactionId(local.json[i][key]);
@@ -286,12 +348,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'transactionStatus') {
 							
 								this.settransactionStatus(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'receiver') {
 							
@@ -301,8 +367,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setreceiver( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'refundedAmount') {
 							
@@ -311,12 +381,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'pendingRefund') {
 							
 								this.setpendingRefund(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'senderTransactionId') {
 							
@@ -325,12 +399,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'senderTransactionStatus') {
 							
 								this.setsenderTransactionStatus(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'pendingReason') {
 							

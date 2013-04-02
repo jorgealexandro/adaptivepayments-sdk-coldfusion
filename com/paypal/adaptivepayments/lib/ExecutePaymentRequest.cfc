@@ -16,15 +16,26 @@
 			property name="fundingPlanId"  type="string" display="fundingPlanId" required="no" hint="";
 			
 			
-			public ExecutePaymentRequest function init( RequestEnvelope requestEnvelope="", string payKey="")
+			
+			public ExecutePaymentRequest function init(  RequestEnvelope requestEnvelope="", string payKey="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setpayKey(arguments.payKey);
 					
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -52,6 +63,7 @@
 			} 
 			
 			
+			
 			public void function setpayKey(string payKey)
 			{
 				this.payKey = arguments.payKey;
@@ -61,6 +73,7 @@
 			{
 				return this.payKey;
 			} 
+			
 			
 			
 			public void function setactionType(string actionType)
@@ -74,6 +87,7 @@
 			} 
 			
 			
+			
 			public void function setfundingPlanId(string fundingPlanId)
 			{
 				this.fundingPlanId = arguments.fundingPlanId;
@@ -83,6 +97,7 @@
 			{
 				return this.fundingPlanId;
 			} 
+			
 			
 			
 			
@@ -98,18 +113,26 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.payKey' ) )
 					
 						local.struct["payKey"] = getpayKey();
 					
+						
+				
 				if(  isDefined( 'this.actionType' ) )
 					
 						local.struct["actionType"] = getactionType();
 					
+						
+				
 				if(  isDefined( 'this.fundingPlanId' ) )
 					
 						local.struct["fundingPlanId"] = getfundingPlanId();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -133,24 +156,34 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'payKey') {
 						
 							this.setpayKey(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'actionType') {
 						
 							this.setactionType(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'fundingPlanId') {
 						
@@ -188,6 +221,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -196,8 +231,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'payKey') {
 							
@@ -206,12 +245,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'actionType') {
 							
 								this.setactionType(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'fundingPlanId') {
 							

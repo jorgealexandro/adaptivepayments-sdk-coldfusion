@@ -7,13 +7,17 @@
 			property name="fundingType"  type="string" display="fundingType" required="yes" hint="";
 			
 			
-			public FundingTypeInfo function init( string fundingType="")
+			
+			public FundingTypeInfo function init(  string fundingType="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setfundingType(arguments.fundingType);
 					
+				
+				
 				
 				
 				return this;  
@@ -42,6 +46,7 @@
 			
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -54,6 +59,8 @@
 					
 						local.struct["fundingType"] = getfundingType();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -76,6 +83,8 @@
 				
 					for(key in local.json)
 					{
+						
+						
 						
 						if('#key#' eq 'fundingType') {
 						
@@ -106,6 +115,8 @@
 						{
 							for(key in local.json[i])
 							{
+							
+							
 							
 							if('#key#' eq 'fundingType') {
 							

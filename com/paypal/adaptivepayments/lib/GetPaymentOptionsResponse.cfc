@@ -15,15 +15,29 @@
 			property name="senderOptions"  type="SenderOptions" display="senderOptions" required="no" hint="";
 			
 			property name="receiverOptions"  type="ReceiverOptions" display="receiverOptions" required="no" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public GetPaymentOptionsResponse function init( ResponseEnvelope responseEnvelope="")
+			public GetPaymentOptionsResponse function init(  ResponseEnvelope responseEnvelope="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -51,6 +65,7 @@
 			} 
 			
 			
+			
 			public void function setinitiatingEntity(InitiatingEntity initiatingEntity)
 			{
 				this.initiatingEntity = arguments.initiatingEntity;
@@ -60,6 +75,7 @@
 			{
 				return this.initiatingEntity;
 			} 
+			
 			
 			
 			public void function setdisplayOptions(DisplayOptions displayOptions)
@@ -73,6 +89,7 @@
 			} 
 			
 			
+			
 			public void function setshippingAddressId(string shippingAddressId)
 			{
 				this.shippingAddressId = arguments.shippingAddressId;
@@ -84,6 +101,7 @@
 			} 
 			
 			
+			
 			public void function setsenderOptions(SenderOptions senderOptions)
 			{
 				this.senderOptions = arguments.senderOptions;
@@ -93,6 +111,7 @@
 			{
 				return this.senderOptions;
 			} 
+			
 			
 			
 			public void function setreceiverOptions(ReceiverOptions receiverOptions)
@@ -129,6 +148,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -141,26 +161,38 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.initiatingEntity' ) )
 					
 						local.struct["initiatingEntity"] = getinitiatingEntity().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.displayOptions' ) )
 					
 						local.struct["displayOptions"] = getdisplayOptions().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.shippingAddressId' ) )
 					
 						local.struct["shippingAddressId"] = getshippingAddressId();
 					
+						
+				
 				if(  isDefined( 'this.senderOptions' ) )
 					
 						local.struct["senderOptions"] = getsenderOptions().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.receiverOptions' ) )
 					
 						local.struct["receiverOptions"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -184,50 +216,72 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'initiatingEntity') {
 						
 							var keyCom = 'initiatingEntity';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setinitiatingEntity( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'displayOptions') {
 						
 							var keyCom = 'displayOptions';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setdisplayOptions( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'shippingAddressId') {
 						
 							this.setshippingAddressId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'senderOptions') {
 						
 							var keyCom = 'senderOptions';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setsenderOptions( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'receiverOptions') {
 						
 							var keyCom = 'receiverOptions';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiverOptions( keyObj.deserialize(local.json[key]) );
@@ -270,6 +324,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -278,8 +334,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'initiatingEntity') {
 							
@@ -289,8 +349,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setinitiatingEntity( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'displayOptions') {
 							
@@ -300,8 +364,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setdisplayOptions( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'shippingAddressId') {
 							
@@ -309,6 +377,8 @@
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'senderOptions') {
 							
@@ -318,8 +388,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setsenderOptions( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'receiverOptions') {
 							
@@ -331,6 +405,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

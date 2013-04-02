@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="error"  type="ErrorData" display="error" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public ErrorList function init( ErrorData error="")
+			public ErrorList function init(  ErrorData error="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.seterror(arguments.error);
 					
 						addItem(arguments.error);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["error"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,11 +108,15 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'error') {
 						
 							var keyCom = 'error';
 							
-							keyCom = 'ErrorData'; 
+							keyCom = 'ErrorData';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.seterror( keyObj.deserialize(local.json[key]) );
 							
@@ -137,6 +148,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'error') {
 							
                              var keyCom = 'error';
@@ -148,6 +161,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

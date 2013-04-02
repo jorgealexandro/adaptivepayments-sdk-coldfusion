@@ -13,9 +13,18 @@
 			property name="businessName"  type="string" display="businessName" required="no" hint="";
 			
 			
+			
 			public DisplayOptions function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -45,6 +54,7 @@
 			} 
 			
 			
+			
 			public void function setemailMarketingImageUrl(string emailMarketingImageUrl)
 			{
 				this.emailMarketingImageUrl = arguments.emailMarketingImageUrl;
@@ -54,6 +64,7 @@
 			{
 				return this.emailMarketingImageUrl;
 			} 
+			
 			
 			
 			public void function setheaderImageUrl(string headerImageUrl)
@@ -67,6 +78,7 @@
 			} 
 			
 			
+			
 			public void function setbusinessName(string businessName)
 			{
 				this.businessName = arguments.businessName;
@@ -76,6 +88,7 @@
 			{
 				return this.businessName;
 			} 
+			
 			
 			
 			
@@ -91,18 +104,26 @@
 					
 						local.struct["emailHeaderImageUrl"] = getemailHeaderImageUrl();
 					
+						
+				
 				if(  isDefined( 'this.emailMarketingImageUrl' ) )
 					
 						local.struct["emailMarketingImageUrl"] = getemailMarketingImageUrl();
 					
+						
+				
 				if(  isDefined( 'this.headerImageUrl' ) )
 					
 						local.struct["headerImageUrl"] = getheaderImageUrl();
 					
+						
+				
 				if(  isDefined( 'this.businessName' ) )
 					
 						local.struct["businessName"] = getbusinessName();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -126,20 +147,28 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'emailHeaderImageUrl') {
 						
 							this.setemailHeaderImageUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'emailMarketingImageUrl') {
 						
 							this.setemailMarketingImageUrl(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'headerImageUrl') {
 						
 							this.setheaderImageUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'businessName') {
 						
@@ -177,12 +206,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'emailHeaderImageUrl') {
 							
 								this.setemailHeaderImageUrl(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'emailMarketingImageUrl') {
 							
@@ -191,12 +224,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'headerImageUrl') {
 							
 								this.setheaderImageUrl(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'businessName') {
 							

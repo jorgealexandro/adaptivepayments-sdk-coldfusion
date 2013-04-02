@@ -9,15 +9,22 @@
 			property name="currencyList"  type="CurrencyList" display="currencyList" required="yes" hint="";
 			
 			
-			public CurrencyConversionList function init( CurrencyType baseAmount="", CurrencyList currencyList="")
+			
+			public CurrencyConversionList function init(  CurrencyType baseAmount="", CurrencyList currencyList="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setbaseAmount(arguments.baseAmount);
 					
+				
+				
+				
 						this.setcurrencyList(arguments.currencyList);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setcurrencyList(CurrencyList currencyList)
 			{
 				this.currencyList = arguments.currencyList;
@@ -54,6 +62,7 @@
 			{
 				return this.currencyList;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["baseAmount"] = getbaseAmount().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.currencyList' ) )
 					
 						local.struct["currencyList"] = getcurrencyList().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,19 +109,27 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'baseAmount') {
 						
 							var keyCom = 'baseAmount';
 							
-							keyCom = 'CurrencyType'; 
+							keyCom = 'CurrencyType';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setbaseAmount( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'currencyList') {
 						
 							var keyCom = 'currencyList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setcurrencyList( keyObj.deserialize(local.json[key]) );
@@ -142,6 +163,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'baseAmount') {
 							
                              var keyCom = 'baseAmount';
@@ -151,8 +174,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setbaseAmount( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'currencyList') {
 							
@@ -162,6 +189,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setcurrencyList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

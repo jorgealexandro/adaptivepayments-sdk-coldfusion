@@ -1,3 +1,4 @@
+
 		<cfscript>
 		component name="PayError" output="false"  hint="I define the properties and methods"
 		{
@@ -5,15 +6,25 @@
 			
 			property name="receiver"  type="Receiver" display="receiver" required="yes" hint="";
 			
-			public PayError function init( Receiver receiver="", ErrorData error="")
+			property name="error"  type="ErrorData" display="error" required="yes" hint="";
+			
+			
+			
+			public PayError function init(  Receiver receiver="", ErrorData error="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setreceiver(arguments.receiver);
 					
+				
+				
+				
 						this.seterror(arguments.error);
 					
+				
+				
 				
 				
 				return this;  
@@ -41,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function seterror(ErrorData error)
 			{
 				this.error = arguments.error;
@@ -50,6 +62,7 @@
 			{
 				return this.error;
 			} 
+			
 			
 			
 			
@@ -65,10 +78,14 @@
 					
 						local.struct["receiver"] = getreceiver().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.error' ) )
 					
 						local.struct["error"] = geterror().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -92,20 +109,28 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'receiver') {
 						
 							var keyCom = 'receiver';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiver( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'error') {
 						
 							var keyCom = 'error';
 							
-							keyCom = 'ErrorData'; 
+							keyCom = 'ErrorData';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.seterror( keyObj.deserialize(local.json[key]) );
 							
@@ -138,6 +163,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'receiver') {
 							
                              var keyCom = 'receiver';
@@ -146,8 +173,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setreceiver( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'error') {
 							
@@ -158,6 +189,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.seterror( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

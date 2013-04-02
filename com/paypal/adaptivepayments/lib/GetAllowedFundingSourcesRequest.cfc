@@ -9,15 +9,22 @@
 			property name="key"  type="string" display="key" required="yes" hint="";
 			
 			
-			public GetAllowedFundingSourcesRequest function init( RequestEnvelope requestEnvelope="", string key="")
+			
+			public GetAllowedFundingSourcesRequest function init(  RequestEnvelope requestEnvelope="", string key="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setkey(arguments.key);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setkey(string key)
 			{
 				this.key = arguments.key;
@@ -54,6 +62,7 @@
 			{
 				return this.key;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.key' ) )
 					
 						local.struct["key"] = getkey();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,14 +109,20 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'key') {
 						
@@ -137,6 +156,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -145,8 +166,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'key') {
 							

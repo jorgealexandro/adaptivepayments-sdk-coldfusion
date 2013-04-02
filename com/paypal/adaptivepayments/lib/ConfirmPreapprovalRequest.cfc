@@ -13,15 +13,26 @@
 			property name="pin"  type="string" display="pin" required="no" hint="";
 			
 			
-			public ConfirmPreapprovalRequest function init( RequestEnvelope requestEnvelope="", string preapprovalKey="")
+			
+			public ConfirmPreapprovalRequest function init(  RequestEnvelope requestEnvelope="", string preapprovalKey="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setpreapprovalKey(arguments.preapprovalKey);
 					
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -49,6 +60,7 @@
 			} 
 			
 			
+			
 			public void function setpreapprovalKey(string preapprovalKey)
 			{
 				this.preapprovalKey = arguments.preapprovalKey;
@@ -58,6 +70,7 @@
 			{
 				return this.preapprovalKey;
 			} 
+			
 			
 			
 			public void function setfundingSourceId(string fundingSourceId)
@@ -71,6 +84,7 @@
 			} 
 			
 			
+			
 			public void function setpin(string pin)
 			{
 				this.pin = arguments.pin;
@@ -80,6 +94,7 @@
 			{
 				return this.pin;
 			} 
+			
 			
 			
 			
@@ -95,18 +110,26 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.preapprovalKey' ) )
 					
 						local.struct["preapprovalKey"] = getpreapprovalKey();
 					
+						
+				
 				if(  isDefined( 'this.fundingSourceId' ) )
 					
 						local.struct["fundingSourceId"] = getfundingSourceId();
 					
+						
+				
 				if(  isDefined( 'this.pin' ) )
 					
 						local.struct["pin"] = getpin();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -130,24 +153,34 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'preapprovalKey') {
 						
 							this.setpreapprovalKey(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'fundingSourceId') {
 						
 							this.setfundingSourceId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'pin') {
 						
@@ -185,6 +218,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -193,8 +228,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'preapprovalKey') {
 							
@@ -203,12 +242,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'fundingSourceId') {
 							
 								this.setfundingSourceId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'pin') {
 							

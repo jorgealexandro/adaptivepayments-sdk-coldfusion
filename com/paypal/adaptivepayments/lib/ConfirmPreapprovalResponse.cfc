@@ -7,13 +7,17 @@
 			property name="responseEnvelope"  type="ResponseEnvelope" display="responseEnvelope" required="yes" hint="";
 			
 			
-			public ConfirmPreapprovalResponse function init( ResponseEnvelope responseEnvelope="")
+			
+			public ConfirmPreapprovalResponse function init(  ResponseEnvelope responseEnvelope="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
 				
 				
 				return this;  
@@ -42,6 +46,7 @@
 			
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -54,6 +59,8 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -77,9 +84,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
@@ -111,6 +122,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -119,6 +132,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

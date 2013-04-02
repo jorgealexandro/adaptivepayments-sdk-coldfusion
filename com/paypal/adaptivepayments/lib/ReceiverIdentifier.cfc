@@ -7,9 +7,12 @@
 			property name="AccountIdentifier"  type="AccountIdentifier" display="AccountIdentifier" required="no" hint="";
 			
 			
+			
 			public ReceiverIdentifier function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
 				
 				
 				
@@ -40,6 +43,7 @@
 			
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -52,6 +56,8 @@
 					
 						local.struct["AccountIdentifier"] = getAccountIdentifier().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -75,9 +81,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'AccountIdentifier') {
 						
 							var keyCom = 'AccountIdentifier';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setAccountIdentifier( keyObj.deserialize(local.json[key]) );
@@ -109,6 +119,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'AccountIdentifier') {
 							
                              var keyCom = 'AccountIdentifier';
@@ -117,6 +129,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setAccountIdentifier( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

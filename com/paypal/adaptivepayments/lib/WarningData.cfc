@@ -9,9 +9,14 @@
 			property name="message"  type="string" display="message" required="no" hint="";
 			
 			
+			
 			public WarningData function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
 				
 				
 				
@@ -41,6 +46,7 @@
 			} 
 			
 			
+			
 			public void function setmessage(string message)
 			{
 				this.message = arguments.message;
@@ -50,6 +56,7 @@
 			{
 				return this.message;
 			} 
+			
 			
 			
 			
@@ -65,10 +72,14 @@
 					
 						local.struct["warningId"] = getwarningId();
 					
+						
+				
 				if(  isDefined( 'this.message' ) )
 					
 						local.struct["message"] = getmessage();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -92,10 +103,14 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'warningId') {
 						
 							this.setwarningId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'message') {
 						
@@ -129,12 +144,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'warningId') {
 							
 								this.setwarningId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'message') {
 							

@@ -25,13 +25,35 @@
 			property name="errorList"  type="ErrorList" display="errorList" required="no" hint="";
 			
 			
-			public RefundInfo function init( Receiver receiver="")
+			
+			public RefundInfo function init(  Receiver receiver="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setreceiver(arguments.receiver);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -59,6 +81,7 @@
 			} 
 			
 			
+			
 			public void function setrefundStatus(string refundStatus)
 			{
 				this.refundStatus = arguments.refundStatus;
@@ -68,6 +91,7 @@
 			{
 				return this.refundStatus;
 			} 
+			
 			
 			
 			public void function setrefundNetAmount(numeric refundNetAmount)
@@ -81,6 +105,7 @@
 			} 
 			
 			
+			
 			public void function setrefundFeeAmount(numeric refundFeeAmount)
 			{
 				this.refundFeeAmount = arguments.refundFeeAmount;
@@ -90,6 +115,7 @@
 			{
 				return this.refundFeeAmount;
 			} 
+			
 			
 			
 			public void function setrefundGrossAmount(numeric refundGrossAmount)
@@ -103,6 +129,7 @@
 			} 
 			
 			
+			
 			public void function settotalOfAllRefunds(numeric totalOfAllRefunds)
 			{
 				this.totalOfAllRefunds = arguments.totalOfAllRefunds;
@@ -112,6 +139,7 @@
 			{
 				return this.totalOfAllRefunds;
 			} 
+			
 			
 			
 			public void function setrefundHasBecomeFull(boolean refundHasBecomeFull)
@@ -125,6 +153,7 @@
 			} 
 			
 			
+			
 			public void function setencryptedRefundTransactionId(string encryptedRefundTransactionId)
 			{
 				this.encryptedRefundTransactionId = arguments.encryptedRefundTransactionId;
@@ -134,6 +163,7 @@
 			{
 				return this.encryptedRefundTransactionId;
 			} 
+			
 			
 			
 			public void function setrefundTransactionStatus(string refundTransactionStatus)
@@ -147,6 +177,7 @@
 			} 
 			
 			
+			
 			public void function seterrorList(ErrorList errorList)
 			{
 				this.errorList = arguments.errorList;
@@ -156,6 +187,7 @@
 			{
 				return this.errorList;
 			} 
+			
 			
 			
 			
@@ -171,42 +203,62 @@
 					
 						local.struct["receiver"] = getreceiver().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.refundStatus' ) )
 					
 						local.struct["refundStatus"] = getrefundStatus();
 					
+						
+				
 				if(  isDefined( 'this.refundNetAmount' ) )
 					
 						local.struct["refundNetAmount"] = getrefundNetAmount();
 					
+						
+				
 				if(  isDefined( 'this.refundFeeAmount' ) )
 					
 						local.struct["refundFeeAmount"] = getrefundFeeAmount();
 					
+						
+				
 				if(  isDefined( 'this.refundGrossAmount' ) )
 					
 						local.struct["refundGrossAmount"] = getrefundGrossAmount();
 					
+						
+				
 				if(  isDefined( 'this.totalOfAllRefunds' ) )
 					
 						local.struct["totalOfAllRefunds"] = gettotalOfAllRefunds();
 					
+						
+				
 				if(  isDefined( 'this.refundHasBecomeFull' ) )
 					
 						local.struct["refundHasBecomeFull"] = getrefundHasBecomeFull();
 					
+						
+				
 				if(  isDefined( 'this.encryptedRefundTransactionId' ) )
 					
 						local.struct["encryptedRefundTransactionId"] = getencryptedRefundTransactionId();
 					
+						
+				
 				if(  isDefined( 'this.refundTransactionStatus' ) )
 					
 						local.struct["refundTransactionStatus"] = getrefundTransactionStatus();
 					
+						
+				
 				if(  isDefined( 'this.errorList' ) )
 					
 						local.struct["errorList"] = geterrorList().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -230,58 +282,82 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'receiver') {
 						
 							var keyCom = 'receiver';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiver( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'refundStatus') {
 						
 							this.setrefundStatus(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'refundNetAmount') {
 						
 							this.setrefundNetAmount(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'refundFeeAmount') {
 						
 							this.setrefundFeeAmount(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'refundGrossAmount') {
 						
 							this.setrefundGrossAmount(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'totalOfAllRefunds') {
 						
 							this.settotalOfAllRefunds(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'refundHasBecomeFull') {
 						
 							this.setrefundHasBecomeFull(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'encryptedRefundTransactionId') {
 						
 							this.setencryptedRefundTransactionId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'refundTransactionStatus') {
 						
 							this.setrefundTransactionStatus(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'errorList') {
 						
 							var keyCom = 'errorList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.seterrorList( keyObj.deserialize(local.json[key]) );
@@ -331,6 +407,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'receiver') {
 							
                              var keyCom = 'receiver';
@@ -339,8 +417,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setreceiver( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'refundStatus') {
 							
@@ -349,12 +431,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'refundNetAmount') {
 							
 								this.setrefundNetAmount(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'refundFeeAmount') {
 							
@@ -363,12 +449,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'refundGrossAmount') {
 							
 								this.setrefundGrossAmount(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'totalOfAllRefunds') {
 							
@@ -377,12 +467,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'refundHasBecomeFull') {
 							
 								this.setrefundHasBecomeFull(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'encryptedRefundTransactionId') {
 							
@@ -391,12 +485,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'refundTransactionStatus') {
 							
 								this.setrefundTransactionStatus(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'errorList') {
 							
@@ -406,6 +504,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.seterrorList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

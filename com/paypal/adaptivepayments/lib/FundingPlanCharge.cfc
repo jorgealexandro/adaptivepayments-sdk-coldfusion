@@ -9,15 +9,22 @@
 			property name="fundingSource"  type="FundingSource" display="fundingSource" required="yes" hint="";
 			
 			
-			public FundingPlanCharge function init( CurrencyType charge="", FundingSource fundingSource="")
+			
+			public FundingPlanCharge function init(  CurrencyType charge="", FundingSource fundingSource="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setcharge(arguments.charge);
 					
+				
+				
+				
 						this.setfundingSource(arguments.fundingSource);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setfundingSource(FundingSource fundingSource)
 			{
 				this.fundingSource = arguments.fundingSource;
@@ -54,6 +62,7 @@
 			{
 				return this.fundingSource;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["charge"] = getcharge().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.fundingSource' ) )
 					
 						local.struct["fundingSource"] = getfundingSource().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,18 +109,26 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'charge') {
 						
 							var keyCom = 'charge';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setcharge( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'fundingSource') {
 						
 							var keyCom = 'fundingSource';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setfundingSource( keyObj.deserialize(local.json[key]) );
@@ -141,6 +162,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'charge') {
 							
                              var keyCom = 'charge';
@@ -149,8 +172,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setcharge( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'fundingSource') {
 							
@@ -160,6 +187,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setfundingSource( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

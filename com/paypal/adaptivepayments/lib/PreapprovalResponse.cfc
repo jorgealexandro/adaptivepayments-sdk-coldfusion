@@ -9,15 +9,22 @@
 			property name="preapprovalKey"  type="string" display="preapprovalKey" required="yes" hint="";
 			
 			
-			public PreapprovalResponse function init( ResponseEnvelope responseEnvelope="", string preapprovalKey="")
+			
+			public PreapprovalResponse function init(  ResponseEnvelope responseEnvelope="", string preapprovalKey="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
 						this.setpreapprovalKey(arguments.preapprovalKey);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setpreapprovalKey(string preapprovalKey)
 			{
 				this.preapprovalKey = arguments.preapprovalKey;
@@ -54,6 +62,7 @@
 			{
 				return this.preapprovalKey;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.preapprovalKey' ) )
 					
 						local.struct["preapprovalKey"] = getpreapprovalKey();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,14 +109,20 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'preapprovalKey') {
 						
@@ -137,6 +156,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -145,8 +166,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'preapprovalKey') {
 							

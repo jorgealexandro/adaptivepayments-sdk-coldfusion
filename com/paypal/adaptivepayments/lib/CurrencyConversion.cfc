@@ -11,17 +11,27 @@
 			property name="exchangeRate"  type="numeric" display="exchangeRate" required="yes" hint="";
 			
 			
-			public CurrencyConversion function init( CurrencyType from="", CurrencyType to="", numeric exchangeRate="")
+			
+			public CurrencyConversion function init(  CurrencyType from="", CurrencyType to="", numeric exchangeRate="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setfrom(arguments.from);
 					
+				
+				
+				
 						this.setto(arguments.to);
 					
+				
+				
+				
 						this.setexchangeRate(arguments.exchangeRate);
 					
+				
+				
 				
 				
 				return this;  
@@ -49,6 +59,7 @@
 			} 
 			
 			
+			
 			public void function setto(CurrencyType to)
 			{
 				this.to = arguments.to;
@@ -60,6 +71,7 @@
 			} 
 			
 			
+			
 			public void function setexchangeRate(numeric exchangeRate)
 			{
 				this.exchangeRate = arguments.exchangeRate;
@@ -69,6 +81,7 @@
 			{
 				return this.exchangeRate;
 			} 
+			
 			
 			
 			
@@ -84,14 +97,20 @@
 					
 						local.struct["from"] = getfrom().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.to' ) )
 					
 						local.struct["to"] = getto().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.exchangeRate' ) )
 					
 						local.struct["exchangeRate"] = getexchangeRate();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -115,23 +134,33 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'from') {
 						
 							var keyCom = 'from';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setfrom( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'to') {
 						
 							var keyCom = 'to';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setto( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'exchangeRate') {
 						
@@ -167,6 +196,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'from') {
 							
                              var keyCom = 'from';
@@ -175,8 +206,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setfrom( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'to') {
 							
@@ -186,8 +221,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setto( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'exchangeRate') {
 							

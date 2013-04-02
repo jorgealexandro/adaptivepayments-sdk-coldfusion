@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="currencyCode"  type="string" display="currencyCode" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public CurrencyCodeList function init( string currencyCode="")
+			public CurrencyCodeList function init(  string currencyCode="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setcurrencyCode(arguments.currencyCode);
 					
 						addItem(arguments.currencyCode);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["currencyCode"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -100,6 +107,8 @@
 				
 					for(key in local.json)
 					{
+						
+						
 						
 						if('#key#' eq 'currencyCode') {
 						
@@ -130,6 +139,8 @@
 						{
 							for(key in local.json[i])
 							{
+							
+							
 							
 							if('#key#' eq 'currencyCode') {
 							

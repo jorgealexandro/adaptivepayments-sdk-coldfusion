@@ -9,15 +9,22 @@
 			property name="amount"  type="numeric" display="amount" required="yes" hint="";
 			
 			
-			public CurrencyType function init( string code="", numeric amount="")
+			
+			public CurrencyType function init(  string code="", numeric amount="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setcode(arguments.code);
 					
+				
+				
+				
 						this.setamount(arguments.amount);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setamount(numeric amount)
 			{
 				this.amount = arguments.amount;
@@ -54,6 +62,7 @@
 			{
 				return this.amount;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["code"] = getcode();
 					
+						
+				
 				if(  isDefined( 'this.amount' ) )
 					
 						local.struct["amount"] = getamount();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,10 +109,14 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'code') {
 						
 							this.setcode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'amount') {
 						
@@ -133,12 +150,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'code') {
 							
 								this.setcode(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'amount') {
 							

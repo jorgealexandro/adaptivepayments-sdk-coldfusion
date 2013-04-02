@@ -18,17 +18,31 @@
 			property name="conversionType"  type="string" display="conversionType" required="no" hint="";
 			
 			
-			public ConvertCurrencyRequest function init( RequestEnvelope requestEnvelope="", CurrencyList baseAmountList="", CurrencyCodeList convertToCurrencyList="")
+			
+			public ConvertCurrencyRequest function init(  RequestEnvelope requestEnvelope="", CurrencyList baseAmountList="", CurrencyCodeList convertToCurrencyList="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setbaseAmountList(arguments.baseAmountList);
 					
+				
+				
+				
 						this.setconvertToCurrencyList(arguments.convertToCurrencyList);
 					
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -56,6 +70,7 @@
 			} 
 			
 			
+			
 			public void function setbaseAmountList(CurrencyList baseAmountList)
 			{
 				this.baseAmountList = arguments.baseAmountList;
@@ -65,6 +80,7 @@
 			{
 				return this.baseAmountList;
 			} 
+			
 			
 			
 			public void function setconvertToCurrencyList(CurrencyCodeList convertToCurrencyList)
@@ -78,6 +94,7 @@
 			} 
 			
 			
+			
 			public void function setcountryCode(string countryCode)
 			{
 				this.countryCode = arguments.countryCode;
@@ -89,6 +106,7 @@
 			} 
 			
 			
+			
 			public void function setconversionType(string conversionType)
 			{
 				this.conversionType = arguments.conversionType;
@@ -98,6 +116,7 @@
 			{
 				return this.conversionType;
 			} 
+			
 			
 			
 			
@@ -113,22 +132,32 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.baseAmountList' ) )
 					
 						local.struct["baseAmountList"] = getbaseAmountList().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.convertToCurrencyList' ) )
 					
 						local.struct["convertToCurrencyList"] = getconvertToCurrencyList().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.countryCode' ) )
 					
 						local.struct["countryCode"] = getcountryCode();
 					
+						
+				
 				if(  isDefined( 'this.conversionType' ) )
 					
 						local.struct["conversionType"] = getconversionType();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -152,37 +181,53 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'baseAmountList') {
 						
 							var keyCom = 'baseAmountList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setbaseAmountList( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'convertToCurrencyList') {
 						
 							var keyCom = 'convertToCurrencyList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setconvertToCurrencyList( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'countryCode') {
 						
 							this.setcountryCode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'conversionType') {
 						
@@ -222,6 +267,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -230,8 +277,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'baseAmountList') {
 							
@@ -241,8 +292,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setbaseAmountList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'convertToCurrencyList') {
 							
@@ -252,8 +307,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setconvertToCurrencyList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'countryCode') {
 							
@@ -261,6 +320,8 @@
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'conversionType') {
 							

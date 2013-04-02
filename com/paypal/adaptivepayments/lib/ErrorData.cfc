@@ -19,11 +19,28 @@
 			property name="exceptionId"  type="string" display="exceptionId" required="no" hint="";
 			
 			property name="parameter"  type="ErrorParameter" display="parameter" required="no" hint="";
+			
 			variables.items= ArrayNew(1);
 			
 			public ErrorData function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -53,6 +70,7 @@
 			} 
 			
 			
+			
 			public void function setdomain(string domain)
 			{
 				this.domain = arguments.domain;
@@ -62,6 +80,7 @@
 			{
 				return this.domain;
 			} 
+			
 			
 			
 			public void function setsubdomain(string subdomain)
@@ -75,6 +94,7 @@
 			} 
 			
 			
+			
 			public void function setseverity(ErrorSeverity severity)
 			{
 				this.severity = arguments.severity;
@@ -84,6 +104,7 @@
 			{
 				return this.severity;
 			} 
+			
 			
 			
 			public void function setcategory(ErrorCategory category)
@@ -97,6 +118,7 @@
 			} 
 			
 			
+			
 			public void function setmessage(string message)
 			{
 				this.message = arguments.message;
@@ -108,6 +130,7 @@
 			} 
 			
 			
+			
 			public void function setexceptionId(string exceptionId)
 			{
 				this.exceptionId = arguments.exceptionId;
@@ -117,6 +140,7 @@
 			{
 				return this.exceptionId;
 			} 
+			
 			
 			
 			public void function setparameter(ErrorParameter parameter)
@@ -153,6 +177,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -165,34 +190,50 @@
 					
 						local.struct["errorId"] = geterrorId();
 					
+						
+				
 				if(  isDefined( 'this.domain' ) )
 					
 						local.struct["domain"] = getdomain();
 					
+						
+				
 				if(  isDefined( 'this.subdomain' ) )
 					
 						local.struct["subdomain"] = getsubdomain();
 					
+						
+				
 				if(  isDefined( 'this.severity' ) )
 					
 						local.struct["severity"] = getseverity().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.category' ) )
 					
 						local.struct["category"] = getcategory().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.message' ) )
 					
 						local.struct["message"] = getmessage();
 					
+						
+				
 				if(  isDefined( 'this.exceptionId' ) )
 					
 						local.struct["exceptionId"] = getexceptionId();
 					
+						
+				
 				if(  isDefined( 'this.parameter' ) )
 					
 						local.struct["parameter"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -216,56 +257,78 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'errorId') {
 						
 							this.seterrorId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'domain') {
 						
 							this.setdomain(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'subdomain') {
 						
 							this.setsubdomain(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'severity') {
 						
 							var keyCom = 'severity';
 							
-							keyCom = 'ErrorSeverity'; 
+							keyCom = 'ErrorSeverity';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setseverity( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'category') {
 						
 							var keyCom = 'category';
 							
-							keyCom = 'ErrorCategory'; 
+							keyCom = 'ErrorCategory';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setcategory( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'message') {
 						
 							this.setmessage(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'exceptionId') {
 						
 							this.setexceptionId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'parameter') {
 						
 							var keyCom = 'parameter';
 							
-							keyCom = 'ErrorParameter'; 
+							keyCom = 'ErrorParameter';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setparameter( keyObj.deserialize(local.json[key]) );
 							
@@ -311,12 +374,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'errorId') {
 							
 								this.seterrorId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'domain') {
 							
@@ -325,12 +392,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'subdomain') {
 							
 								this.setsubdomain(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'severity') {
 							
@@ -341,8 +412,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setseverity( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'category') {
 							
@@ -353,8 +428,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setcategory( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'message') {
 							
@@ -363,12 +442,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'exceptionId') {
 							
 								this.setexceptionId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'parameter') {
 							
@@ -381,6 +464,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

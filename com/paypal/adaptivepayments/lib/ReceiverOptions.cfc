@@ -15,13 +15,25 @@
 			property name="referrerCode"  type="string" display="referrerCode" required="no" hint="";
 			
 			
-			public ReceiverOptions function init( AccountIdentifier receiver="")
+			
+			public ReceiverOptions function init(  AccountIdentifier receiver="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
+				
+				
+				
+				
+				
+				
 						this.setreceiver(arguments.receiver);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -49,6 +61,7 @@
 			} 
 			
 			
+			
 			public void function setcustomId(string customId)
 			{
 				this.customId = arguments.customId;
@@ -58,6 +71,7 @@
 			{
 				return this.customId;
 			} 
+			
 			
 			
 			public void function setinvoiceData(InvoiceData invoiceData)
@@ -71,6 +85,7 @@
 			} 
 			
 			
+			
 			public void function setreceiver(AccountIdentifier receiver)
 			{
 				this.receiver = arguments.receiver;
@@ -82,6 +97,7 @@
 			} 
 			
 			
+			
 			public void function setreferrerCode(string referrerCode)
 			{
 				this.referrerCode = arguments.referrerCode;
@@ -91,6 +107,7 @@
 			{
 				return this.referrerCode;
 			} 
+			
 			
 			
 			
@@ -106,22 +123,32 @@
 					
 						local.struct["description"] = getdescription();
 					
+						
+				
 				if(  isDefined( 'this.customId' ) )
 					
 						local.struct["customId"] = getcustomId();
 					
+						
+				
 				if(  isDefined( 'this.invoiceData' ) )
 					
 						local.struct["invoiceData"] = getinvoiceData().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.receiver' ) )
 					
 						local.struct["receiver"] = getreceiver().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.referrerCode' ) )
 					
 						local.struct["referrerCode"] = getreferrerCode();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -145,33 +172,47 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'description') {
 						
 							this.setdescription(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'customId') {
 						
 							this.setcustomId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'invoiceData') {
 						
 							var keyCom = 'invoiceData';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setinvoiceData( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'receiver') {
 						
 							var keyCom = 'receiver';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiver( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'referrerCode') {
 						
@@ -211,6 +252,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'description') {
 							
 								this.setdescription(local.json[i][key]);
@@ -218,12 +261,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'customId') {
 							
 								this.setcustomId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'invoiceData') {
 							
@@ -233,8 +280,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setinvoiceData( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'receiver') {
 							
@@ -244,8 +295,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setreceiver( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'referrerCode') {
 							

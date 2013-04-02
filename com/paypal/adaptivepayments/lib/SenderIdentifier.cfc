@@ -11,9 +11,16 @@
 			property name="AccountIdentifier"  type="AccountIdentifier" display="AccountIdentifier" required="no" hint="";
 			
 			
+			
 			public SenderIdentifier function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -43,6 +50,7 @@
 			} 
 			
 			
+			
 			public void function settaxIdDetails(boolean taxIdDetails)
 			{
 				this.taxIdDetails = arguments.taxIdDetails;
@@ -54,6 +62,7 @@
 			} 
 			
 			
+			
 			public void function setAccountIdentifier(AccountIdentifier AccountIdentifier)
 			{
 				this.AccountIdentifier = arguments.AccountIdentifier;
@@ -63,6 +72,7 @@
 			{
 				return this.AccountIdentifier;
 			} 
+			
 			
 			
 			
@@ -78,14 +88,20 @@
 					
 						local.struct["useCredentials"] = getuseCredentials();
 					
+						
+				
 				if(  isDefined( 'this.taxIdDetails' ) )
 					
 						local.struct["taxIdDetails"] = gettaxIdDetails();
 					
+						
+				
 				if(  isDefined( 'this.AccountIdentifier' ) )
 					
 						local.struct["AccountIdentifier"] = getAccountIdentifier().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -109,19 +125,27 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'useCredentials') {
 						
 							this.setuseCredentials(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'taxIdDetails') {
 						
 							this.settaxIdDetails(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'AccountIdentifier') {
 						
 							var keyCom = 'AccountIdentifier';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setAccountIdentifier( keyObj.deserialize(local.json[key]) );
@@ -157,6 +181,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'useCredentials') {
 							
 								this.setuseCredentials(local.json[i][key]);
@@ -164,12 +190,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'taxIdDetails') {
 							
 								this.settaxIdDetails(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'AccountIdentifier') {
 							
@@ -179,6 +209,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setAccountIdentifier( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

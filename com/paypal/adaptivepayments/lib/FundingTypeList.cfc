@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="fundingTypeInfo"  type="FundingTypeInfo" display="fundingTypeInfo" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public FundingTypeList function init( FundingTypeInfo fundingTypeInfo="")
+			public FundingTypeList function init(  FundingTypeInfo fundingTypeInfo="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setfundingTypeInfo(arguments.fundingTypeInfo);
 					
 						addItem(arguments.fundingTypeInfo);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["fundingTypeInfo"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,9 +108,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'fundingTypeInfo') {
 						
 							var keyCom = 'fundingTypeInfo';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setfundingTypeInfo( keyObj.deserialize(local.json[key]) );
@@ -136,6 +147,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'fundingTypeInfo') {
 							
                              var keyCom = 'fundingTypeInfo';
@@ -146,6 +159,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

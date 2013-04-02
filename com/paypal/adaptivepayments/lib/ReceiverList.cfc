@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="receiver"  type="Receiver" display="receiver" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public ReceiverList function init( Receiver receiver="")
+			public ReceiverList function init(  Receiver receiver="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setreceiver(arguments.receiver);
 					
 						addItem(arguments.receiver);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["receiver"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,9 +108,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'receiver') {
 						
 							var keyCom = 'receiver';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiver( keyObj.deserialize(local.json[key]) );
@@ -136,6 +147,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'receiver') {
 							
                              var keyCom = 'receiver';
@@ -146,6 +159,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

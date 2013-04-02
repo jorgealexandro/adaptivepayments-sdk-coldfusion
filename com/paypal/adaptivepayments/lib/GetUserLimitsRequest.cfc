@@ -17,25 +17,41 @@
 			property name="limitType"  type="string" display="limitType" required="yes" hint="
 								List of limit types
 							";
+			
 			variables.items= ArrayNew(1);
 			
-			public GetUserLimitsRequest function init( RequestEnvelope requestEnvelope="", AccountIdentifier user="", string country="", string currencyCode="", string limitType="")
+			public GetUserLimitsRequest function init(  RequestEnvelope requestEnvelope="", AccountIdentifier user="", string country="", string currencyCode="", string limitType="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setuser(arguments.user);
 					
+				
+				
+				
 						this.setcountry(arguments.country);
 					
+				
+				
+				
 						this.setcurrencyCode(arguments.currencyCode);
 					
+				
+				
+				
 						this.setlimitType(arguments.limitType);
 					
 						addItem(arguments.limitType);
 					
+				
+				
 				
 				
 				return this;  
@@ -63,6 +79,7 @@
 			} 
 			
 			
+			
 			public void function setuser(AccountIdentifier user)
 			{
 				this.user = arguments.user;
@@ -72,6 +89,7 @@
 			{
 				return this.user;
 			} 
+			
 			
 			
 			public void function setcountry(string country)
@@ -85,6 +103,7 @@
 			} 
 			
 			
+			
 			public void function setcurrencyCode(string currencyCode)
 			{
 				this.currencyCode = arguments.currencyCode;
@@ -94,6 +113,7 @@
 			{
 				return this.currencyCode;
 			} 
+			
 			
 			
 			public void function setlimitType(string limitType)
@@ -130,6 +150,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -142,22 +163,32 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.user' ) )
 					
 						local.struct["user"] = getuser().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.country' ) )
 					
 						local.struct["country"] = getcountry();
 					
+						
+				
 				if(  isDefined( 'this.currencyCode' ) )
 					
 						local.struct["currencyCode"] = getcurrencyCode();
 					
+						
+				
 				if(  isDefined( 'this.limitType' ) )
 					
 						local.struct["limitType"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -181,33 +212,47 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'user') {
 						
 							var keyCom = 'user';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setuser( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'country') {
 						
 							this.setcountry(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'currencyCode') {
 						
 							this.setcurrencyCode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'limitType') {
 						
@@ -247,6 +292,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -255,8 +302,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'user') {
 							
@@ -266,8 +317,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setuser( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'country') {
 							
@@ -276,12 +331,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'currencyCode') {
 							
 								this.setcurrencyCode(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'limitType') {
 							

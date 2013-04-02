@@ -7,15 +7,21 @@
 			property name="responseEnvelope"  type="ResponseEnvelope" display="responseEnvelope" required="yes" hint="";
 			
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public FaultMessage function init( ResponseEnvelope responseEnvelope="")
+			public FaultMessage function init(  ResponseEnvelope responseEnvelope="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -41,6 +47,7 @@
 			{
 				return this.responseEnvelope;
 			} 
+			
 			
 			
 			public void function seterror(ErrorData error)
@@ -77,6 +84,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -89,10 +97,14 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.error' ) )
 					
 						local.struct["error"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -116,20 +128,28 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'error') {
 						
 							var keyCom = 'error';
 							
-							keyCom = 'ErrorData'; 
+							keyCom = 'ErrorData';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.seterror( keyObj.deserialize(local.json[key]) );
 							
@@ -163,6 +183,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -171,8 +193,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'error') {
 							
@@ -185,6 +211,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

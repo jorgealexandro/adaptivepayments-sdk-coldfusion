@@ -9,15 +9,22 @@
 			property name="limitAmount"  type="CurrencyType" display="limitAmount" required="yes" hint="";
 			
 			
-			public UserLimit function init( string limitType="", CurrencyType limitAmount="")
+			
+			public UserLimit function init(  string limitType="", CurrencyType limitAmount="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setlimitType(arguments.limitType);
 					
+				
+				
+				
 						this.setlimitAmount(arguments.limitAmount);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setlimitAmount(CurrencyType limitAmount)
 			{
 				this.limitAmount = arguments.limitAmount;
@@ -54,6 +62,7 @@
 			{
 				return this.limitAmount;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["limitType"] = getlimitType();
 					
+						
+				
 				if(  isDefined( 'this.limitAmount' ) )
 					
 						local.struct["limitAmount"] = getlimitAmount().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,14 +109,20 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'limitType') {
 						
 							this.setlimitType(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'limitAmount') {
 						
 							var keyCom = 'limitAmount';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setlimitAmount( keyObj.deserialize(local.json[key]) );
@@ -137,12 +156,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'limitType') {
 							
 								this.setlimitType(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'limitAmount') {
 							
@@ -152,6 +175,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setlimitAmount( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

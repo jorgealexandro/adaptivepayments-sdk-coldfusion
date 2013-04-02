@@ -39,23 +39,64 @@
 			property name="sender"  type="SenderIdentifier" display="sender" required="no" hint="";
 			
 			
-			public PayRequest function init( RequestEnvelope requestEnvelope="", string actionType="", string cancelUrl="", string currencyCode="", ReceiverList receiverList="", string returnUrl="")
+			
+			public PayRequest function init(  RequestEnvelope requestEnvelope="", string actionType="", string cancelUrl="", string currencyCode="", ReceiverList receiverList="", string returnUrl="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
+				
+				
 						this.setactionType(arguments.actionType);
 					
+				
+				
+				
 						this.setcancelUrl(arguments.cancelUrl);
 					
+				
+				
+				
 						this.setcurrencyCode(arguments.currencyCode);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 						this.setreceiverList(arguments.receiverList);
 					
+				
+				
+				
+				
+				
+				
+				
 						this.setreturnUrl(arguments.returnUrl);
 					
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -83,6 +124,7 @@
 			} 
 			
 			
+			
 			public void function setclientDetails(ClientDetailsType clientDetails)
 			{
 				this.clientDetails = arguments.clientDetails;
@@ -92,6 +134,7 @@
 			{
 				return this.clientDetails;
 			} 
+			
 			
 			
 			public void function setactionType(string actionType)
@@ -105,6 +148,7 @@
 			} 
 			
 			
+			
 			public void function setcancelUrl(string cancelUrl)
 			{
 				this.cancelUrl = arguments.cancelUrl;
@@ -114,6 +158,7 @@
 			{
 				return this.cancelUrl;
 			} 
+			
 			
 			
 			public void function setcurrencyCode(string currencyCode)
@@ -127,6 +172,7 @@
 			} 
 			
 			
+			
 			public void function setfeesPayer(string feesPayer)
 			{
 				this.feesPayer = arguments.feesPayer;
@@ -136,6 +182,7 @@
 			{
 				return this.feesPayer;
 			} 
+			
 			
 			
 			public void function setipnNotificationUrl(string ipnNotificationUrl)
@@ -149,6 +196,7 @@
 			} 
 			
 			
+			
 			public void function setmemo(string memo)
 			{
 				this.memo = arguments.memo;
@@ -158,6 +206,7 @@
 			{
 				return this.memo;
 			} 
+			
 			
 			
 			public void function setpin(string pin)
@@ -171,6 +220,7 @@
 			} 
 			
 			
+			
 			public void function setpreapprovalKey(string preapprovalKey)
 			{
 				this.preapprovalKey = arguments.preapprovalKey;
@@ -180,6 +230,7 @@
 			{
 				return this.preapprovalKey;
 			} 
+			
 			
 			
 			public void function setreceiverList(ReceiverList receiverList)
@@ -193,6 +244,7 @@
 			} 
 			
 			
+			
 			public void function setreverseAllParallelPaymentsOnError(boolean reverseAllParallelPaymentsOnError)
 			{
 				this.reverseAllParallelPaymentsOnError = arguments.reverseAllParallelPaymentsOnError;
@@ -202,6 +254,7 @@
 			{
 				return this.reverseAllParallelPaymentsOnError;
 			} 
+			
 			
 			
 			public void function setsenderEmail(string senderEmail)
@@ -215,6 +268,7 @@
 			} 
 			
 			
+			
 			public void function setreturnUrl(string returnUrl)
 			{
 				this.returnUrl = arguments.returnUrl;
@@ -224,6 +278,7 @@
 			{
 				return this.returnUrl;
 			} 
+			
 			
 			
 			public void function settrackingId(string trackingId)
@@ -237,6 +292,7 @@
 			} 
 			
 			
+			
 			public void function setfundingConstraint(FundingConstraint fundingConstraint)
 			{
 				this.fundingConstraint = arguments.fundingConstraint;
@@ -248,6 +304,7 @@
 			} 
 			
 			
+			
 			public void function setsender(SenderIdentifier sender)
 			{
 				this.sender = arguments.sender;
@@ -257,6 +314,7 @@
 			{
 				return this.sender;
 			} 
+			
 			
 			
 			
@@ -272,70 +330,104 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.clientDetails' ) )
 					
 						local.struct["clientDetails"] = getclientDetails().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.actionType' ) )
 					
 						local.struct["actionType"] = getactionType();
 					
+						
+				
 				if(  isDefined( 'this.cancelUrl' ) )
 					
 						local.struct["cancelUrl"] = getcancelUrl();
 					
+						
+				
 				if(  isDefined( 'this.currencyCode' ) )
 					
 						local.struct["currencyCode"] = getcurrencyCode();
 					
+						
+				
 				if(  isDefined( 'this.feesPayer' ) )
 					
 						local.struct["feesPayer"] = getfeesPayer();
 					
+						
+				
 				if(  isDefined( 'this.ipnNotificationUrl' ) )
 					
 						local.struct["ipnNotificationUrl"] = getipnNotificationUrl();
 					
+						
+				
 				if(  isDefined( 'this.memo' ) )
 					
 						local.struct["memo"] = getmemo();
 					
+						
+				
 				if(  isDefined( 'this.pin' ) )
 					
 						local.struct["pin"] = getpin();
 					
+						
+				
 				if(  isDefined( 'this.preapprovalKey' ) )
 					
 						local.struct["preapprovalKey"] = getpreapprovalKey();
 					
+						
+				
 				if(  isDefined( 'this.receiverList' ) )
 					
 						local.struct["receiverList"] = getreceiverList().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.reverseAllParallelPaymentsOnError' ) )
 					
 						local.struct["reverseAllParallelPaymentsOnError"] = getreverseAllParallelPaymentsOnError();
 					
+						
+				
 				if(  isDefined( 'this.senderEmail' ) )
 					
 						local.struct["senderEmail"] = getsenderEmail();
 					
+						
+				
 				if(  isDefined( 'this.returnUrl' ) )
 					
 						local.struct["returnUrl"] = getreturnUrl();
 					
+						
+				
 				if(  isDefined( 'this.trackingId' ) )
 					
 						local.struct["trackingId"] = gettrackingId();
 					
+						
+				
 				if(  isDefined( 'this.fundingConstraint' ) )
 					
 						local.struct["fundingConstraint"] = getfundingConstraint().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.sender' ) )
 					
 						local.struct["sender"] = getsender().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -359,107 +451,151 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'clientDetails') {
 						
 							var keyCom = 'clientDetails';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setclientDetails( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'actionType') {
 						
 							this.setactionType(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'cancelUrl') {
 						
 							this.setcancelUrl(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'currencyCode') {
 						
 							this.setcurrencyCode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'feesPayer') {
 						
 							this.setfeesPayer(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'ipnNotificationUrl') {
 						
 							this.setipnNotificationUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'memo') {
 						
 							this.setmemo(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'pin') {
 						
 							this.setpin(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'preapprovalKey') {
 						
 							this.setpreapprovalKey(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'receiverList') {
 						
 							var keyCom = 'receiverList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiverList( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'reverseAllParallelPaymentsOnError') {
 						
 							this.setreverseAllParallelPaymentsOnError(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'senderEmail') {
 						
 							this.setsenderEmail(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'returnUrl') {
 						
 							this.setreturnUrl(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'trackingId') {
 						
 							this.settrackingId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'fundingConstraint') {
 						
 							var keyCom = 'fundingConstraint';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setfundingConstraint( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'sender') {
 						
 							var keyCom = 'sender';
 							
-							keyCom = 'SenderIdentifier'; 
+							keyCom = 'SenderIdentifier';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setsender( keyObj.deserialize(local.json[key]) );
 							
@@ -522,6 +658,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -530,8 +668,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'clientDetails') {
 							
@@ -541,8 +683,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setclientDetails( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'actionType') {
 							
@@ -551,12 +697,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'cancelUrl') {
 							
 								this.setcancelUrl(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'currencyCode') {
 							
@@ -565,12 +715,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'feesPayer') {
 							
 								this.setfeesPayer(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'ipnNotificationUrl') {
 							
@@ -579,12 +733,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'memo') {
 							
 								this.setmemo(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'pin') {
 							
@@ -593,12 +751,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'preapprovalKey') {
 							
 								this.setpreapprovalKey(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'receiverList') {
 							
@@ -608,8 +770,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setreceiverList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'reverseAllParallelPaymentsOnError') {
 							
@@ -618,12 +784,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'senderEmail') {
 							
 								this.setsenderEmail(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'returnUrl') {
 							
@@ -632,12 +802,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'trackingId') {
 							
 								this.settrackingId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'fundingConstraint') {
 							
@@ -647,8 +821,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setfundingConstraint( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'sender') {
 							
@@ -659,6 +837,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setsender( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

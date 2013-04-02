@@ -8,10 +8,19 @@
 			
 			property name="phone"  type="PhoneNumberType" display="phone" required="no" hint="";
 			
+			property name="accountId"  type="string" display="accountId" required="no" hint="";
+			
+			
 			
 			public AccountIdentifier function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -41,6 +50,7 @@
 			} 
 			
 			
+			
 			public void function setphone(PhoneNumberType phone)
 			{
 				this.phone = arguments.phone;
@@ -50,6 +60,19 @@
 			{
 				return this.phone;
 			} 
+			
+			
+			
+			public void function setaccountId(string accountId)
+			{
+				this.accountId = arguments.accountId;
+			}  
+				
+			public string function getaccountId()
+			{
+				return this.accountId;
+			} 
+			
 			
 			
 			
@@ -65,10 +88,20 @@
 					
 						local.struct["email"] = getemail();
 					
+						
+				
 				if(  isDefined( 'this.phone' ) )
 					
 						local.struct["phone"] = getphone().getStruct();
 					
+						
+				
+				if(  isDefined( 'this.accountId' ) )
+					
+						local.struct["accountId"] = getaccountId();
+					
+						
+				
 				return local.struct;
 			} 
 			
@@ -92,18 +125,31 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'email') {
 						
 							this.setemail(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'phone') {
 						
 							var keyCom = 'phone';
 							
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setphone( keyObj.deserialize(local.json[key]) );
 							
+						}
+						
+						
+						
+						if('#key#' eq 'accountId') {
+						
+							this.setaccountId(local.json[key]);
 						}
 						
 						
@@ -126,6 +172,8 @@
 							
 							this.setphone(local.json[i]);
 							
+							this.setaccountId(local.json[i]);
+							
 						}
 					
 						if(isStruct(local.json[i]))
@@ -133,12 +181,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'email') {
 							
 								this.setemail(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'phone') {
 							
@@ -148,6 +200,17 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setphone( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
+							}
+											
+							
+							
+							
+							if('#key#' eq 'accountId') {
+							
+								this.setaccountId(local.json[i][key]);
+							
 							}
 											
 							

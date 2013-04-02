@@ -17,13 +17,27 @@
 			property name="receiverList"  type="ReceiverList" display="receiverList" required="no" hint="";
 			
 			
-			public RefundRequest function init( RequestEnvelope requestEnvelope="")
+			
+			public RefundRequest function init(  RequestEnvelope requestEnvelope="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -51,6 +65,7 @@
 			} 
 			
 			
+			
 			public void function setcurrencyCode(string currencyCode)
 			{
 				this.currencyCode = arguments.currencyCode;
@@ -60,6 +75,7 @@
 			{
 				return this.currencyCode;
 			} 
+			
 			
 			
 			public void function setpayKey(string payKey)
@@ -73,6 +89,7 @@
 			} 
 			
 			
+			
 			public void function settransactionId(string transactionId)
 			{
 				this.transactionId = arguments.transactionId;
@@ -82,6 +99,7 @@
 			{
 				return this.transactionId;
 			} 
+			
 			
 			
 			public void function settrackingId(string trackingId)
@@ -95,6 +113,7 @@
 			} 
 			
 			
+			
 			public void function setreceiverList(ReceiverList receiverList)
 			{
 				this.receiverList = arguments.receiverList;
@@ -104,6 +123,7 @@
 			{
 				return this.receiverList;
 			} 
+			
 			
 			
 			
@@ -119,26 +139,38 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.currencyCode' ) )
 					
 						local.struct["currencyCode"] = getcurrencyCode();
 					
+						
+				
 				if(  isDefined( 'this.payKey' ) )
 					
 						local.struct["payKey"] = getpayKey();
 					
+						
+				
 				if(  isDefined( 'this.transactionId' ) )
 					
 						local.struct["transactionId"] = gettransactionId();
 					
+						
+				
 				if(  isDefined( 'this.trackingId' ) )
 					
 						local.struct["trackingId"] = gettrackingId();
 					
+						
+				
 				if(  isDefined( 'this.receiverList' ) )
 					
 						local.struct["receiverList"] = getreceiverList().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -162,38 +194,54 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'currencyCode') {
 						
 							this.setcurrencyCode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'payKey') {
 						
 							this.setpayKey(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'transactionId') {
 						
 							this.settransactionId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'trackingId') {
 						
 							this.settrackingId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'receiverList') {
 						
 							var keyCom = 'receiverList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setreceiverList( keyObj.deserialize(local.json[key]) );
@@ -235,6 +283,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -243,8 +293,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'currencyCode') {
 							
@@ -253,12 +307,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'payKey') {
 							
 								this.setpayKey(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'transactionId') {
 							
@@ -267,12 +325,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'trackingId') {
 							
 								this.settrackingId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'receiverList') {
 							
@@ -282,6 +344,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setreceiverList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

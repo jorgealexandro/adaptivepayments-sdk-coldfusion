@@ -15,21 +15,37 @@
 			property name="currencyConversion"  type="CurrencyConversion" display="currencyConversion" required="no" hint="";
 			
 			property name="charge"  type="FundingPlanCharge" display="charge" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public FundingPlan function init( string fundingPlanId="", CurrencyType fundingAmount="", FundingPlanCharge charge="")
+			public FundingPlan function init(  string fundingPlanId="", CurrencyType fundingAmount="", FundingPlanCharge charge="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setfundingPlanId(arguments.fundingPlanId);
 					
+				
+				
+				
 						this.setfundingAmount(arguments.fundingAmount);
 					
+				
+				
+				
+				
+				
+				
+				
+				
+				
 						this.setcharge(arguments.charge);
 					
 						addItem(arguments.charge);
 					
+				
+				
 				
 				
 				return this;  
@@ -57,6 +73,7 @@
 			} 
 			
 			
+			
 			public void function setfundingAmount(CurrencyType fundingAmount)
 			{
 				this.fundingAmount = arguments.fundingAmount;
@@ -66,6 +83,7 @@
 			{
 				return this.fundingAmount;
 			} 
+			
 			
 			
 			public void function setbackupFundingSource(FundingSource backupFundingSource)
@@ -79,6 +97,7 @@
 			} 
 			
 			
+			
 			public void function setsenderFees(CurrencyType senderFees)
 			{
 				this.senderFees = arguments.senderFees;
@@ -90,6 +109,7 @@
 			} 
 			
 			
+			
 			public void function setcurrencyConversion(CurrencyConversion currencyConversion)
 			{
 				this.currencyConversion = arguments.currencyConversion;
@@ -99,6 +119,7 @@
 			{
 				return this.currencyConversion;
 			} 
+			
 			
 			
 			public void function setcharge(FundingPlanCharge charge)
@@ -135,6 +156,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -147,26 +169,38 @@
 					
 						local.struct["fundingPlanId"] = getfundingPlanId();
 					
+						
+				
 				if(  isDefined( 'this.fundingAmount' ) )
 					
 						local.struct["fundingAmount"] = getfundingAmount().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.backupFundingSource' ) )
 					
 						local.struct["backupFundingSource"] = getbackupFundingSource().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.senderFees' ) )
 					
 						local.struct["senderFees"] = getsenderFees().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.currencyConversion' ) )
 					
 						local.struct["currencyConversion"] = getcurrencyConversion().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.charge' ) )
 					
 						local.struct["charge"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -190,50 +224,72 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'fundingPlanId') {
 						
 							this.setfundingPlanId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'fundingAmount') {
 						
 							var keyCom = 'fundingAmount';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setfundingAmount( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'backupFundingSource') {
 						
 							var keyCom = 'backupFundingSource';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setbackupFundingSource( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'senderFees') {
 						
 							var keyCom = 'senderFees';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setsenderFees( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'currencyConversion') {
 						
 							var keyCom = 'currencyConversion';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setcurrencyConversion( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'charge') {
 						
 							var keyCom = 'charge';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setcharge( keyObj.deserialize(local.json[key]) );
@@ -276,12 +332,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'fundingPlanId') {
 							
 								this.setfundingPlanId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'fundingAmount') {
 							
@@ -291,8 +351,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setfundingAmount( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'backupFundingSource') {
 							
@@ -302,8 +366,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setbackupFundingSource( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'senderFees') {
 							
@@ -313,8 +381,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setsenderFees( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'currencyConversion') {
 							
@@ -324,8 +396,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setcurrencyConversion( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'charge') {
 							
@@ -337,6 +413,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

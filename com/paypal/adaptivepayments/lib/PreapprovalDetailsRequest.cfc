@@ -11,15 +11,24 @@
 			property name="getBillingAddress"  type="boolean" display="getBillingAddress" required="no" hint="";
 			
 			
-			public PreapprovalDetailsRequest function init( RequestEnvelope requestEnvelope="", string preapprovalKey="")
+			
+			public PreapprovalDetailsRequest function init(  RequestEnvelope requestEnvelope="", string preapprovalKey="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setpreapprovalKey(arguments.preapprovalKey);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -47,6 +56,7 @@
 			} 
 			
 			
+			
 			public void function setpreapprovalKey(string preapprovalKey)
 			{
 				this.preapprovalKey = arguments.preapprovalKey;
@@ -58,6 +68,7 @@
 			} 
 			
 			
+			
 			public void function setgetBillingAddress(boolean getBillingAddress)
 			{
 				this.getBillingAddress = arguments.getBillingAddress;
@@ -67,6 +78,7 @@
 			{
 				return this.getBillingAddress;
 			} 
+			
 			
 			
 			
@@ -82,14 +94,20 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.preapprovalKey' ) )
 					
 						local.struct["preapprovalKey"] = getpreapprovalKey();
 					
+						
+				
 				if(  isDefined( 'this.getBillingAddress' ) )
 					
 						local.struct["getBillingAddress"] = getgetBillingAddress();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -113,19 +131,27 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'preapprovalKey') {
 						
 							this.setpreapprovalKey(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'getBillingAddress') {
 						
@@ -161,6 +187,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -169,8 +197,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'preapprovalKey') {
 							
@@ -178,6 +210,8 @@
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'getBillingAddress') {
 							

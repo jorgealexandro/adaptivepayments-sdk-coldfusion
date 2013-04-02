@@ -9,15 +9,22 @@
 			property name="estimatedAmountTable"  type="CurrencyConversionTable" display="estimatedAmountTable" required="yes" hint="";
 			
 			
-			public ConvertCurrencyResponse function init( ResponseEnvelope responseEnvelope="", CurrencyConversionTable estimatedAmountTable="")
+			
+			public ConvertCurrencyResponse function init(  ResponseEnvelope responseEnvelope="", CurrencyConversionTable estimatedAmountTable="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
 						this.setestimatedAmountTable(arguments.estimatedAmountTable);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setestimatedAmountTable(CurrencyConversionTable estimatedAmountTable)
 			{
 				this.estimatedAmountTable = arguments.estimatedAmountTable;
@@ -54,6 +62,7 @@
 			{
 				return this.estimatedAmountTable;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.estimatedAmountTable' ) )
 					
 						local.struct["estimatedAmountTable"] = getestimatedAmountTable().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,20 +109,28 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'estimatedAmountTable') {
 						
 							var keyCom = 'estimatedAmountTable';
 							
-							keyCom = 'CurrencyConversionTable'; 
+							keyCom = 'CurrencyConversionTable';
+							
+							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setestimatedAmountTable( keyObj.deserialize(local.json[key]) );
 							
@@ -142,6 +163,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -150,8 +173,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'estimatedAmountTable') {
 							
@@ -162,6 +189,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setestimatedAmountTable( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

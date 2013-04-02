@@ -11,17 +11,27 @@
 			property name="refundInfoList"  type="RefundInfoList" display="refundInfoList" required="yes" hint="";
 			
 			
-			public RefundResponse function init( ResponseEnvelope responseEnvelope="", string currencyCode="", RefundInfoList refundInfoList="")
+			
+			public RefundResponse function init(  ResponseEnvelope responseEnvelope="", string currencyCode="", RefundInfoList refundInfoList="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
 						this.setcurrencyCode(arguments.currencyCode);
 					
+				
+				
+				
 						this.setrefundInfoList(arguments.refundInfoList);
 					
+				
+				
 				
 				
 				return this;  
@@ -49,6 +59,7 @@
 			} 
 			
 			
+			
 			public void function setcurrencyCode(string currencyCode)
 			{
 				this.currencyCode = arguments.currencyCode;
@@ -60,6 +71,7 @@
 			} 
 			
 			
+			
 			public void function setrefundInfoList(RefundInfoList refundInfoList)
 			{
 				this.refundInfoList = arguments.refundInfoList;
@@ -69,6 +81,7 @@
 			{
 				return this.refundInfoList;
 			} 
+			
 			
 			
 			
@@ -84,14 +97,20 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.currencyCode' ) )
 					
 						local.struct["currencyCode"] = getcurrencyCode();
 					
+						
+				
 				if(  isDefined( 'this.refundInfoList' ) )
 					
 						local.struct["refundInfoList"] = getrefundInfoList().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -115,23 +134,33 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'currencyCode') {
 						
 							this.setcurrencyCode(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'refundInfoList') {
 						
 							var keyCom = 'refundInfoList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrefundInfoList( keyObj.deserialize(local.json[key]) );
@@ -167,6 +196,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -175,8 +206,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'currencyCode') {
 							
@@ -184,6 +219,8 @@
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'refundInfoList') {
 							
@@ -193,6 +230,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrefundInfoList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

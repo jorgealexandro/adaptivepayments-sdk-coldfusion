@@ -9,13 +9,19 @@
 			property name="selectedAddress"  type="Address" display="selectedAddress" required="no" hint="";
 			
 			
-			public GetShippingAddressesResponse function init( ResponseEnvelope responseEnvelope="")
+			
+			public GetShippingAddressesResponse function init(  ResponseEnvelope responseEnvelope="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -43,6 +49,7 @@
 			} 
 			
 			
+			
 			public void function setselectedAddress(Address selectedAddress)
 			{
 				this.selectedAddress = arguments.selectedAddress;
@@ -52,6 +59,7 @@
 			{
 				return this.selectedAddress;
 			} 
+			
 			
 			
 			
@@ -67,10 +75,14 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.selectedAddress' ) )
 					
 						local.struct["selectedAddress"] = getselectedAddress().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -94,18 +106,26 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'selectedAddress') {
 						
 							var keyCom = 'selectedAddress';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setselectedAddress( keyObj.deserialize(local.json[key]) );
@@ -139,6 +159,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -147,8 +169,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'selectedAddress') {
 							
@@ -158,6 +184,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setselectedAddress( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

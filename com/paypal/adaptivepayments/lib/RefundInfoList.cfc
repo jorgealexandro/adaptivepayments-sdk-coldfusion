@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="refundInfo"  type="RefundInfo" display="refundInfo" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public RefundInfoList function init( RefundInfo refundInfo="")
+			public RefundInfoList function init(  RefundInfo refundInfo="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setrefundInfo(arguments.refundInfo);
 					
 						addItem(arguments.refundInfo);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["refundInfo"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,9 +108,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'refundInfo') {
 						
 							var keyCom = 'refundInfo';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrefundInfo( keyObj.deserialize(local.json[key]) );
@@ -136,6 +147,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'refundInfo') {
 							
                              var keyCom = 'refundInfo';
@@ -146,6 +159,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

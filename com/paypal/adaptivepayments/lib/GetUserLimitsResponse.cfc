@@ -9,19 +9,28 @@
 			property name="userLimit"  type="UserLimit" display="userLimit" required="yes" hint="";
 			
 			property name="warningDataList"  type="WarningDataList" display="warningDataList" required="no" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public GetUserLimitsResponse function init( ResponseEnvelope responseEnvelope="", UserLimit userLimit="")
+			public GetUserLimitsResponse function init(  ResponseEnvelope responseEnvelope="", UserLimit userLimit="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
 						this.setuserLimit(arguments.userLimit);
 					
 						addItem(arguments.userLimit);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -47,6 +56,7 @@
 			{
 				return this.responseEnvelope;
 			} 
+			
 			
 			
 			public void function setuserLimit(UserLimit userLimit)
@@ -82,6 +92,7 @@
 				variables.items = ArrayNew(1);
 			} 
 			
+			
 			public void function setwarningDataList(WarningDataList warningDataList)
 			{
 				this.warningDataList = arguments.warningDataList;
@@ -91,6 +102,7 @@
 			{
 				return this.warningDataList;
 			} 
+			
 			
 			
 			
@@ -106,14 +118,20 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.userLimit' ) )
 					
 						local.struct["userLimit"] =getItems();
 					
+						
+				
 				if(  isDefined( 'this.warningDataList' ) )
 					
 						local.struct["warningDataList"] = getwarningDataList().getStruct();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -137,18 +155,26 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'userLimit') {
 						
 							var keyCom = 'userLimit';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setuserLimit( keyObj.deserialize(local.json[key]) );
@@ -156,9 +182,13 @@
 							this.addItem(keyObj.deserialize(local.json[key]));
 						}
 						
+						
+						
 						if('#key#' eq 'warningDataList') {
 						
 							var keyCom = 'warningDataList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setwarningDataList( keyObj.deserialize(local.json[key]) );
@@ -194,6 +224,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -202,8 +234,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'userLimit') {
 							
@@ -215,8 +251,12 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'warningDataList') {
 							
@@ -226,6 +266,8 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setwarningDataList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
 							

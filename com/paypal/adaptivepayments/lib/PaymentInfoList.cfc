@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="paymentInfo"  type="PaymentInfo" display="paymentInfo" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public PaymentInfoList function init( PaymentInfo paymentInfo="")
+			public PaymentInfoList function init(  PaymentInfo paymentInfo="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setpaymentInfo(arguments.paymentInfo);
 					
 						addItem(arguments.paymentInfo);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["paymentInfo"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,9 +108,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'paymentInfo') {
 						
 							var keyCom = 'paymentInfo';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setpaymentInfo( keyObj.deserialize(local.json[key]) );
@@ -136,6 +147,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'paymentInfo') {
 							
                              var keyCom = 'paymentInfo';
@@ -146,6 +159,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

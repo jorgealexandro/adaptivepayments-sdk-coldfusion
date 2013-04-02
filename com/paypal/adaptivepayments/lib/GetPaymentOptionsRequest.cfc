@@ -9,15 +9,22 @@
 			property name="payKey"  type="string" display="payKey" required="yes" hint="";
 			
 			
-			public GetPaymentOptionsRequest function init( RequestEnvelope requestEnvelope="", string payKey="")
+			
+			public GetPaymentOptionsRequest function init(  RequestEnvelope requestEnvelope="", string payKey="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setrequestEnvelope(arguments.requestEnvelope);
 					
+				
+				
+				
 						this.setpayKey(arguments.payKey);
 					
+				
+				
 				
 				
 				return this;  
@@ -45,6 +52,7 @@
 			} 
 			
 			
+			
 			public void function setpayKey(string payKey)
 			{
 				this.payKey = arguments.payKey;
@@ -54,6 +62,7 @@
 			{
 				return this.payKey;
 			} 
+			
 			
 			
 			
@@ -69,10 +78,14 @@
 					
 						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.payKey' ) )
 					
 						local.struct["payKey"] = getpayKey();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -96,14 +109,20 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requestEnvelope') {
 						
 							var keyCom = 'requestEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'payKey') {
 						
@@ -137,6 +156,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requestEnvelope') {
 							
                              var keyCom = 'requestEnvelope';
@@ -145,8 +166,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'payKey') {
 							

@@ -10,16 +10,29 @@
 			
 			property name="payErrorList"  type="PayErrorList" display="payErrorList" required="no" hint="";
 			
+			property name="postPaymentDisclosureList"  type="PostPaymentDisclosureList" display="postPaymentDisclosureList" required="no" hint="";
 			
-			public ExecutePaymentResponse function init( ResponseEnvelope responseEnvelope="", string paymentExecStatus="")
+			
+			
+			public ExecutePaymentResponse function init(  ResponseEnvelope responseEnvelope="", string paymentExecStatus="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
 						this.setpaymentExecStatus(arguments.paymentExecStatus);
 					
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -47,6 +60,7 @@
 			} 
 			
 			
+			
 			public void function setpaymentExecStatus(string paymentExecStatus)
 			{
 				this.paymentExecStatus = arguments.paymentExecStatus;
@@ -58,6 +72,7 @@
 			} 
 			
 			
+			
 			public void function setpayErrorList(PayErrorList payErrorList)
 			{
 				this.payErrorList = arguments.payErrorList;
@@ -67,6 +82,19 @@
 			{
 				return this.payErrorList;
 			} 
+			
+			
+			
+			public void function setpostPaymentDisclosureList(PostPaymentDisclosureList postPaymentDisclosureList)
+			{
+				this.postPaymentDisclosureList = arguments.postPaymentDisclosureList;
+			}  
+				
+			public PostPaymentDisclosureList function getpostPaymentDisclosureList()
+			{
+				return this.postPaymentDisclosureList;
+			} 
+			
 			
 			
 			
@@ -82,14 +110,26 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.paymentExecStatus' ) )
 					
 						local.struct["paymentExecStatus"] = getpaymentExecStatus();
 					
+						
+				
 				if(  isDefined( 'this.payErrorList' ) )
 					
 						local.struct["payErrorList"] = getpayErrorList().getStruct();
 					
+						
+				
+				if(  isDefined( 'this.postPaymentDisclosureList' ) )
+					
+						local.struct["postPaymentDisclosureList"] = getpostPaymentDisclosureList().getStruct();
+					
+						
+				
 				return local.struct;
 			} 
 			
@@ -113,23 +153,35 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'paymentExecStatus') {
 						
 							this.setpaymentExecStatus(local.json[key]);
 						}
 						
+						
+						
+							
+						
 						if('#key#' eq 'error') {
 						
 							var keyCom = 'payErrorList';
+							
+							
 							
 							if(keyCom eq 'payErrorList')
 								errorStruct = StructNew();
@@ -138,6 +190,19 @@
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setpayErrorList( keyObj.deserialize(local.json[key]) );
+							
+						}
+						
+						
+						
+						if('#key#' eq 'postPaymentDisclosureList') {
+						
+							var keyCom = 'postPaymentDisclosureList';
+							
+							
+							
+							var keyObj = createObject("component",'#keyCom#');
+							this.setpostPaymentDisclosureList( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
@@ -163,12 +228,16 @@
 							
 							this.setpayErrorList(local.json[i]);
 							
+							this.setpostPaymentDisclosureList(local.json[i]);
+							
 						}
 					
 						if(isStruct(local.json[i]))
 						{
 							for(key in local.json[i])
 							{
+							
+							
 							
 							if('#key#' eq 'responseEnvelope') {
 							
@@ -178,8 +247,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'paymentExecStatus') {
 							
@@ -187,6 +260,10 @@
 							
 							}
 											
+							
+							
+							
+								
 							
 							if('#key#' eq 'error') {
 							
@@ -196,6 +273,23 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setpayErrorList( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
+							}
+											
+							
+							
+							
+							if('#key#' eq 'postPaymentDisclosureList') {
+							
+                             var keyCom = 'postPaymentDisclosureList';
+								
+								
+								var keyObj = createObject("component",'#keyCom#');
+								this.setpostPaymentDisclosureList( keyObj.deserialize(local.json[i][key]) );
+								
+							
+							
 							}
 											
 							

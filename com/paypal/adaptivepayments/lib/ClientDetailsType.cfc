@@ -21,9 +21,26 @@
 			property name="customerId"  type="string" display="customerId" required="no" hint="";
 			
 			
+			
 			public ClientDetailsType function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -53,6 +70,7 @@
 			} 
 			
 			
+			
 			public void function setdeviceId(string deviceId)
 			{
 				this.deviceId = arguments.deviceId;
@@ -62,6 +80,7 @@
 			{
 				return this.deviceId;
 			} 
+			
 			
 			
 			public void function setapplicationId(string applicationId)
@@ -75,6 +94,7 @@
 			} 
 			
 			
+			
 			public void function setmodel(string model)
 			{
 				this.model = arguments.model;
@@ -84,6 +104,7 @@
 			{
 				return this.model;
 			} 
+			
 			
 			
 			public void function setgeoLocation(string geoLocation)
@@ -97,6 +118,7 @@
 			} 
 			
 			
+			
 			public void function setcustomerType(string customerType)
 			{
 				this.customerType = arguments.customerType;
@@ -106,6 +128,7 @@
 			{
 				return this.customerType;
 			} 
+			
 			
 			
 			public void function setpartnerName(string partnerName)
@@ -119,6 +142,7 @@
 			} 
 			
 			
+			
 			public void function setcustomerId(string customerId)
 			{
 				this.customerId = arguments.customerId;
@@ -128,6 +152,7 @@
 			{
 				return this.customerId;
 			} 
+			
 			
 			
 			
@@ -143,34 +168,50 @@
 					
 						local.struct["ipAddress"] = getipAddress();
 					
+						
+				
 				if(  isDefined( 'this.deviceId' ) )
 					
 						local.struct["deviceId"] = getdeviceId();
 					
+						
+				
 				if(  isDefined( 'this.applicationId' ) )
 					
 						local.struct["applicationId"] = getapplicationId();
 					
+						
+				
 				if(  isDefined( 'this.model' ) )
 					
 						local.struct["model"] = getmodel();
 					
+						
+				
 				if(  isDefined( 'this.geoLocation' ) )
 					
 						local.struct["geoLocation"] = getgeoLocation();
 					
+						
+				
 				if(  isDefined( 'this.customerType' ) )
 					
 						local.struct["customerType"] = getcustomerType();
 					
+						
+				
 				if(  isDefined( 'this.partnerName' ) )
 					
 						local.struct["partnerName"] = getpartnerName();
 					
+						
+				
 				if(  isDefined( 'this.customerId' ) )
 					
 						local.struct["customerId"] = getcustomerId();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -194,40 +235,56 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'ipAddress') {
 						
 							this.setipAddress(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'deviceId') {
 						
 							this.setdeviceId(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'applicationId') {
 						
 							this.setapplicationId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'model') {
 						
 							this.setmodel(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'geoLocation') {
 						
 							this.setgeoLocation(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'customerType') {
 						
 							this.setcustomerType(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'partnerName') {
 						
 							this.setpartnerName(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'customerId') {
 						
@@ -273,12 +330,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'ipAddress') {
 							
 								this.setipAddress(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'deviceId') {
 							
@@ -287,12 +348,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'applicationId') {
 							
 								this.setapplicationId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'model') {
 							
@@ -301,12 +366,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'geoLocation') {
 							
 								this.setgeoLocation(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'customerType') {
 							
@@ -315,12 +384,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'partnerName') {
 							
 								this.setpartnerName(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'customerId') {
 							

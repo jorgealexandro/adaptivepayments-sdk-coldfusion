@@ -19,17 +19,35 @@
 			property name="type"  type="string" display="type" required="no" hint="";
 			
 			
-			public BaseAddress function init( string line1="", string city="", string countryCode="")
+			
+			public BaseAddress function init(  string line1="", string city="", string countryCode="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setline1(arguments.line1);
 					
+				
+				
+				
+				
+				
 						this.setcity(arguments.city);
 					
+				
+				
+				
+				
+				
+				
+				
 						this.setcountryCode(arguments.countryCode);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -57,6 +75,7 @@
 			} 
 			
 			
+			
 			public void function setline2(string line2)
 			{
 				this.line2 = arguments.line2;
@@ -66,6 +85,7 @@
 			{
 				return this.line2;
 			} 
+			
 			
 			
 			public void function setcity(string city)
@@ -79,6 +99,7 @@
 			} 
 			
 			
+			
 			public void function setstate(string state)
 			{
 				this.state = arguments.state;
@@ -88,6 +109,7 @@
 			{
 				return this.state;
 			} 
+			
 			
 			
 			public void function setpostalCode(string postalCode)
@@ -101,6 +123,7 @@
 			} 
 			
 			
+			
 			public void function setcountryCode(string countryCode)
 			{
 				this.countryCode = arguments.countryCode;
@@ -112,6 +135,7 @@
 			} 
 			
 			
+			
 			public void function settype(string type)
 			{
 				this.type = arguments.type;
@@ -121,6 +145,7 @@
 			{
 				return this.type;
 			} 
+			
 			
 			
 			
@@ -136,30 +161,44 @@
 					
 						local.struct["line1"] = getline1();
 					
+						
+				
 				if(  isDefined( 'this.line2' ) )
 					
 						local.struct["line2"] = getline2();
 					
+						
+				
 				if(  isDefined( 'this.city' ) )
 					
 						local.struct["city"] = getcity();
 					
+						
+				
 				if(  isDefined( 'this.state' ) )
 					
 						local.struct["state"] = getstate();
 					
+						
+				
 				if(  isDefined( 'this.postalCode' ) )
 					
 						local.struct["postalCode"] = getpostalCode();
 					
+						
+				
 				if(  isDefined( 'this.countryCode' ) )
 					
 						local.struct["countryCode"] = getcountryCode();
 					
+						
+				
 				if(  isDefined( 'this.type' ) )
 					
 						local.struct["type"] = gettype();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -183,35 +222,49 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'line1') {
 						
 							this.setline1(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'line2') {
 						
 							this.setline2(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'city') {
 						
 							this.setcity(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'state') {
 						
 							this.setstate(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'postalCode') {
 						
 							this.setpostalCode(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'countryCode') {
 						
 							this.setcountryCode(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'type') {
 						
@@ -255,12 +308,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'line1') {
 							
 								this.setline1(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'line2') {
 							
@@ -269,12 +326,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'city') {
 							
 								this.setcity(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'state') {
 							
@@ -283,6 +344,8 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'postalCode') {
 							
 								this.setpostalCode(local.json[i][key]);
@@ -290,12 +353,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'countryCode') {
 							
 								this.setcountryCode(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'type') {
 							

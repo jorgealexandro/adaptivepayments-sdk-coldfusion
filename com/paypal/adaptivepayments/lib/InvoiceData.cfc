@@ -9,11 +9,18 @@
 			property name="totalTax"  type="numeric" display="totalTax" required="no" hint="";
 			
 			property name="totalShipping"  type="numeric" display="totalShipping" required="no" hint="";
+			
 			variables.items= ArrayNew(1);
 			
 			public InvoiceData function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -65,6 +72,7 @@
 				variables.items = ArrayNew(1);
 			} 
 			
+			
 			public void function settotalTax(numeric totalTax)
 			{
 				this.totalTax = arguments.totalTax;
@@ -76,6 +84,7 @@
 			} 
 			
 			
+			
 			public void function settotalShipping(numeric totalShipping)
 			{
 				this.totalShipping = arguments.totalShipping;
@@ -85,6 +94,7 @@
 			{
 				return this.totalShipping;
 			} 
+			
 			
 			
 			
@@ -100,14 +110,20 @@
 					
 						local.struct["item"] =getItems();
 					
+						
+				
 				if(  isDefined( 'this.totalTax' ) )
 					
 						local.struct["totalTax"] = gettotalTax();
 					
+						
+				
 				if(  isDefined( 'this.totalShipping' ) )
 					
 						local.struct["totalShipping"] = gettotalShipping();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -131,9 +147,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'item') {
 						
 							var keyCom = 'item';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setitem( keyObj.deserialize(local.json[key]) );
@@ -141,10 +161,14 @@
 							this.addItem(keyObj.deserialize(local.json[key]));
 						}
 						
+						
+						
 						if('#key#' eq 'totalTax') {
 						
 							this.settotalTax(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'totalShipping') {
 						
@@ -180,6 +204,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'item') {
 							
                              var keyCom = 'item';
@@ -190,8 +216,12 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'totalTax') {
 							
@@ -199,6 +229,8 @@
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'totalShipping') {
 							

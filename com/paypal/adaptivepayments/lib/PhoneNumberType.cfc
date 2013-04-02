@@ -11,15 +11,24 @@
 			property name="extension"  type="string" display="extension" required="no" hint="";
 			
 			
-			public PhoneNumberType function init( string countryCode="", string phoneNumber="")
+			
+			public PhoneNumberType function init(  string countryCode="", string phoneNumber="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setcountryCode(arguments.countryCode);
 					
+				
+				
+				
 						this.setphoneNumber(arguments.phoneNumber);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -47,6 +56,7 @@
 			} 
 			
 			
+			
 			public void function setphoneNumber(string phoneNumber)
 			{
 				this.phoneNumber = arguments.phoneNumber;
@@ -58,6 +68,7 @@
 			} 
 			
 			
+			
 			public void function setextension(string extension)
 			{
 				this.extension = arguments.extension;
@@ -67,6 +78,7 @@
 			{
 				return this.extension;
 			} 
+			
 			
 			
 			
@@ -82,14 +94,20 @@
 					
 						local.struct["countryCode"] = getcountryCode();
 					
+						
+				
 				if(  isDefined( 'this.phoneNumber' ) )
 					
 						local.struct["phoneNumber"] = getphoneNumber();
 					
+						
+				
 				if(  isDefined( 'this.extension' ) )
 					
 						local.struct["extension"] = getextension();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -113,15 +131,21 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'countryCode') {
 						
 							this.setcountryCode(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'phoneNumber') {
 						
 							this.setphoneNumber(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'extension') {
 						
@@ -157,6 +181,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'countryCode') {
 							
 								this.setcountryCode(local.json[i][key]);
@@ -164,12 +190,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'phoneNumber') {
 							
 								this.setphoneNumber(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'extension') {
 							

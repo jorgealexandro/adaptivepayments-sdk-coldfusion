@@ -5,17 +5,21 @@
 			property name="error"  type="ErrorData" display="error" required="no" hint="";
 			
 			property name="currencyConversionList"  type="CurrencyConversionList" display="currencyConversionList" required="yes" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public CurrencyConversionTable function init( CurrencyConversionList currencyConversionList="")
+			public CurrencyConversionTable function init(  CurrencyConversionList currencyConversionList="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
 				
 				
 						this.setcurrencyConversionList(arguments.currencyConversionList);
 					
 						addItem(arguments.currencyConversionList);
 					
+				
+				
 				
 				
 				return this;  
@@ -66,6 +70,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -78,6 +83,8 @@
 					
 						local.struct["currencyConversionList"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -101,9 +108,13 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'currencyConversionList') {
 						
 							var keyCom = 'currencyConversionList';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setcurrencyConversionList( keyObj.deserialize(local.json[key]) );
@@ -136,6 +147,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'currencyConversionList') {
 							
                              var keyCom = 'currencyConversionList';
@@ -146,6 +159,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

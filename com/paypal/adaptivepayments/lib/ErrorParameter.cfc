@@ -7,9 +7,12 @@
 			property name="name"  type="string" display="name" required="no" hint="";
 			
 			
+			
 			public ErrorParameter function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
 				
 				
 				
@@ -40,6 +43,7 @@
 			
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -52,6 +56,8 @@
 					
 						local.struct["name"] = getname();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -74,6 +80,8 @@
 				
 					for(key in local.json)
 					{
+						
+						
 						
 						if('#key#' eq 'name') {
 						
@@ -104,6 +112,8 @@
 						{
 							for(key in local.json[i])
 							{
+							
+							
 							
 							if('#key#' eq 'name') {
 							

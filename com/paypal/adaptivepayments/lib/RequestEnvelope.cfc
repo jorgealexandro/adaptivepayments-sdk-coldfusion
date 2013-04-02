@@ -22,13 +22,19 @@
 							";
 			
 			
-			public RequestEnvelope function init( string errorLanguage="")
+			
+			public RequestEnvelope function init(  string errorLanguage="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
+				
+				
 						this.seterrorLanguage(arguments.errorLanguage);
 					
+				
+				
 				
 				
 				return this;  
@@ -56,6 +62,7 @@
 			} 
 			
 			
+			
 			public void function seterrorLanguage(string errorLanguage)
 			{
 				this.errorLanguage = arguments.errorLanguage;
@@ -65,6 +72,7 @@
 			{
 				return this.errorLanguage;
 			} 
+			
 			
 			
 			
@@ -80,10 +88,14 @@
 					
 						local.struct["detailLevel"] = getdetailLevel().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.errorLanguage' ) )
 					
 						local.struct["errorLanguage"] = geterrorLanguage();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -107,14 +119,20 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'detailLevel') {
 						
 							var keyCom = 'detailLevel';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setdetailLevel( keyObj.deserialize(local.json[key]) );
 							
 						}
+						
+						
 						
 						if('#key#' eq 'errorLanguage') {
 						
@@ -148,6 +166,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'detailLevel') {
 							
                              var keyCom = 'detailLevel';
@@ -156,8 +176,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setdetailLevel( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'errorLanguage') {
 							

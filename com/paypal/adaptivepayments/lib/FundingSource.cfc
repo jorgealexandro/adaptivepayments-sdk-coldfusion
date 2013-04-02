@@ -15,13 +15,25 @@
 			property name="allowed"  type="boolean" display="allowed" required="no" hint="";
 			
 			
-			public FundingSource function init( string type="")
+			
+			public FundingSource function init(  string type="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
+				
+				
 						this.settype(arguments.type);
 					
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -49,6 +61,7 @@
 			} 
 			
 			
+			
 			public void function settype(string type)
 			{
 				this.type = arguments.type;
@@ -58,6 +71,7 @@
 			{
 				return this.type;
 			} 
+			
 			
 			
 			public void function setdisplayName(string displayName)
@@ -71,6 +85,7 @@
 			} 
 			
 			
+			
 			public void function setfundingSourceId(string fundingSourceId)
 			{
 				this.fundingSourceId = arguments.fundingSourceId;
@@ -82,6 +97,7 @@
 			} 
 			
 			
+			
 			public void function setallowed(boolean allowed)
 			{
 				this.allowed = arguments.allowed;
@@ -91,6 +107,7 @@
 			{
 				return this.allowed;
 			} 
+			
 			
 			
 			
@@ -106,22 +123,32 @@
 					
 						local.struct["lastFourOfAccountNumber"] = getlastFourOfAccountNumber();
 					
+						
+				
 				if(  isDefined( 'this.type' ) )
 					
 						local.struct["type"] = gettype();
 					
+						
+				
 				if(  isDefined( 'this.displayName' ) )
 					
 						local.struct["displayName"] = getdisplayName();
 					
+						
+				
 				if(  isDefined( 'this.fundingSourceId' ) )
 					
 						local.struct["fundingSourceId"] = getfundingSourceId();
 					
+						
+				
 				if(  isDefined( 'this.allowed' ) )
 					
 						local.struct["allowed"] = getallowed();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -145,25 +172,35 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'lastFourOfAccountNumber') {
 						
 							this.setlastFourOfAccountNumber(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'type') {
 						
 							this.settype(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'displayName') {
 						
 							this.setdisplayName(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'fundingSourceId') {
 						
 							this.setfundingSourceId(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'allowed') {
 						
@@ -203,12 +240,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'lastFourOfAccountNumber') {
 							
 								this.setlastFourOfAccountNumber(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'type') {
 							
@@ -217,6 +258,8 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'displayName') {
 							
 								this.setdisplayName(local.json[i][key]);
@@ -224,12 +267,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'fundingSourceId') {
 							
 								this.setfundingSourceId(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'allowed') {
 							

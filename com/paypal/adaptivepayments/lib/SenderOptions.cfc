@@ -12,9 +12,14 @@
 			property name="referrerCode"  type="string" display="referrerCode" required="no" hint="";
 			
 			
+			
 			public SenderOptions function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
 				
 				
 				
@@ -44,6 +49,7 @@
 			} 
 			
 			
+			
 			public void function setreferrerCode(string referrerCode)
 			{
 				this.referrerCode = arguments.referrerCode;
@@ -53,6 +59,7 @@
 			{
 				return this.referrerCode;
 			} 
+			
 			
 			
 			
@@ -68,10 +75,14 @@
 					
 						local.struct["requireShippingAddressSelection"] = getrequireShippingAddressSelection();
 					
+						
+				
 				if(  isDefined( 'this.referrerCode' ) )
 					
 						local.struct["referrerCode"] = getreferrerCode();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -95,10 +106,14 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'requireShippingAddressSelection') {
 						
 							this.setrequireShippingAddressSelection(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'referrerCode') {
 						
@@ -132,12 +147,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'requireShippingAddressSelection') {
 							
 								this.setrequireShippingAddressSelection(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'referrerCode') {
 							

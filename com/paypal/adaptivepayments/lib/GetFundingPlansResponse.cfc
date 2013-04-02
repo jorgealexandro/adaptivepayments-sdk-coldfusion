@@ -7,15 +7,21 @@
 			property name="responseEnvelope"  type="ResponseEnvelope" display="responseEnvelope" required="yes" hint="";
 			
 			property name="fundingPlan"  type="FundingPlan" display="fundingPlan" required="no" hint="";
+			
 			variables.items= ArrayNew(1);
 			
-			public GetFundingPlansResponse function init( ResponseEnvelope responseEnvelope="")
+			public GetFundingPlansResponse function init(  ResponseEnvelope responseEnvelope="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
 				
 				
+				
 						this.setresponseEnvelope(arguments.responseEnvelope);
 					
+				
+				
+				
+				
 				
 				
 				return this;  
@@ -41,6 +47,7 @@
 			{
 				return this.responseEnvelope;
 			} 
+			
 			
 			
 			public void function setfundingPlan(FundingPlan fundingPlan)
@@ -77,6 +84,7 @@
 			} 
 			
 			
+			
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -89,10 +97,14 @@
 					
 						local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
 					
+						
+				
 				if(  isDefined( 'this.fundingPlan' ) )
 					
 						local.struct["fundingPlan"] =getItems();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -116,18 +128,26 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'responseEnvelope') {
 						
 							var keyCom = 'responseEnvelope';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setresponseEnvelope( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
+						
+						
 						if('#key#' eq 'fundingPlan') {
 						
 							var keyCom = 'fundingPlan';
+							
+							
 							
 							var keyObj = createObject("component",'#keyCom#');
 							this.setfundingPlan( keyObj.deserialize(local.json[key]) );
@@ -162,6 +182,8 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'responseEnvelope') {
 							
                              var keyCom = 'responseEnvelope';
@@ -170,8 +192,12 @@
 								var keyObj = createObject("component",'#keyCom#');
 								this.setresponseEnvelope( keyObj.deserialize(local.json[i][key]) );
 								
+							
+							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'fundingPlan') {
 							
@@ -183,6 +209,8 @@
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
+							
+							
 							}
 											
 							

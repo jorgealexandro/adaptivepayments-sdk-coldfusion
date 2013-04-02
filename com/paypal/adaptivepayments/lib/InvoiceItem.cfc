@@ -15,9 +15,20 @@
 			property name="itemCount"  type="numeric" display="itemCount" required="no" hint="";
 			
 			
+			
 			public InvoiceItem function init( )
 				hint="I initialize the component and return myself" 
 			 	output="false" {
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -47,6 +58,7 @@
 			} 
 			
 			
+			
 			public void function setidentifier(string identifier)
 			{
 				this.identifier = arguments.identifier;
@@ -56,6 +68,7 @@
 			{
 				return this.identifier;
 			} 
+			
 			
 			
 			public void function setprice(numeric price)
@@ -69,6 +82,7 @@
 			} 
 			
 			
+			
 			public void function setitemPrice(numeric itemPrice)
 			{
 				this.itemPrice = arguments.itemPrice;
@@ -80,6 +94,7 @@
 			} 
 			
 			
+			
 			public void function setitemCount(numeric itemCount)
 			{
 				this.itemCount = arguments.itemCount;
@@ -89,6 +104,7 @@
 			{
 				return this.itemCount;
 			} 
+			
 			
 			
 			
@@ -104,22 +120,32 @@
 					
 						local.struct["name"] = getname();
 					
+						
+				
 				if(  isDefined( 'this.identifier' ) )
 					
 						local.struct["identifier"] = getidentifier();
 					
+						
+				
 				if(  isDefined( 'this.price' ) )
 					
 						local.struct["price"] = getprice();
 					
+						
+				
 				if(  isDefined( 'this.itemPrice' ) )
 					
 						local.struct["itemPrice"] = getitemPrice();
 					
+						
+				
 				if(  isDefined( 'this.itemCount' ) )
 					
 						local.struct["itemCount"] = getitemCount();
 					
+						
+				
 				return local.struct;
 			} 
 			
@@ -143,25 +169,35 @@
 					for(key in local.json)
 					{
 						
+						
+						
 						if('#key#' eq 'name') {
 						
 							this.setname(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'identifier') {
 						
 							this.setidentifier(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'price') {
 						
 							this.setprice(local.json[key]);
 						}
 						
+						
+						
 						if('#key#' eq 'itemPrice') {
 						
 							this.setitemPrice(local.json[key]);
 						}
+						
+						
 						
 						if('#key#' eq 'itemCount') {
 						
@@ -201,12 +237,16 @@
 							for(key in local.json[i])
 							{
 							
+							
+							
 							if('#key#' eq 'name') {
 							
 								this.setname(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'identifier') {
 							
@@ -215,6 +255,8 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'price') {
 							
 								this.setprice(local.json[i][key]);
@@ -222,12 +264,16 @@
 							}
 											
 							
+							
+							
 							if('#key#' eq 'itemPrice') {
 							
 								this.setitemPrice(local.json[i][key]);
 							
 							}
 											
+							
+							
 							
 							if('#key#' eq 'itemCount') {
 							
