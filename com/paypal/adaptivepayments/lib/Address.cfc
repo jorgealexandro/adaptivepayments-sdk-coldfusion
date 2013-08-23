@@ -21,44 +21,48 @@
             return this.error;
         }
 
-        public void function setaddresseeName(string addresseeName) {
+        public void function setAddresseeName(string addresseeName) {
             this.addresseeName = arguments.addresseeName;
         }
 
-        public string function getaddresseeName() {
+        public string function getAddresseeName() {
             return this.addresseeName;
         }
 
-        public void function setbaseAddress(BaseAddress baseAddress) {
+        public void function setBaseAddress(BaseAddress baseAddress) {
             this.baseAddress = arguments.baseAddress;
         }
 
-        public BaseAddress function getbaseAddress() {
+        public BaseAddress function getBaseAddress() {
             return this.baseAddress;
         }
 
-        public void function setaddressId(string addressId) {
+        public void function setAddressId(string addressId) {
             this.addressId = arguments.addressId;
         }
 
-        public string function getaddressId() {
+        public string function getAddressId() {
             return this.addressId;
         }
 
         public struct function getStruct() {
             local.struct = structNew();
 
-            if(isDefined('this.error'))
+            if(isDefined('this.error')) {
                 local.struct["error"] = getError().getStruct();
+            }
 
-            if(isDefined('this.addresseeName'))
-                local.struct["addresseeName"] = getaddresseeName();
+            if(isDefined('this.addresseeName')) {
+                local.struct["addresseeName"] = getAddresseeName();
+            }
 
-            if(isDefined('this.baseAddress'))
-                local.struct["baseAddress"] = getbaseAddress().getStruct();
+            if(isDefined('this.baseAddress')) {
+                local.struct["baseAddress"] = getBaseAddress().getStruct();
+            }
 
-            if(isDefined('this.addressId'))
-                local.struct["addressId"] = getaddressId();
+            if(isDefined('this.addressId')) {
+                local.struct["addressId"] = getAddressId();
+            }
 
             return local.struct;
         }
@@ -80,20 +84,18 @@
 
                     if('#key#' eq 'addresseeName') {
 
-                        this.setaddresseeName(local.json[key]);
+                        this.setAddresseeName(local.json[key]);
                     }
 
                     if('#key#' eq 'baseAddress') {
 
-                        var keyCom = 'baseAddress';
-
-                        var keyObj = createObject("component", '#keyCom#');
-                        this.setbaseAddress(keyObj.deserialize(local.json[key]));
+                        var keyObj = createObject("component", 'baseAddress');
+                        this.setBaseAddress(keyObj.deserialize(local.json[key]));
                     }
 
                     if('#key#' eq 'addressId') {
 
-                        this.setaddressId(local.json[key]);
+                        this.setAddressId(local.json[key]);
                     }
 
                     if('#key#' eq 'error') {
@@ -107,11 +109,11 @@
 
                     if(NOT isStruct(local.json[i])) {
 
-                        this.setaddresseeName(local.json[i]);
+                        this.setAddresseeName(local.json[i]);
 
-                        this.setbaseAddress(local.json[i]);
+                        this.setBaseAddress(local.json[i]);
 
-                        this.setaddressId(local.json[i]);
+                        this.setAddressId(local.json[i]);
                     }
 
                     if(isStruct(local.json[i])) {
@@ -119,20 +121,16 @@
 
                             if('#key#' eq 'addresseeName') {
 
-                                this.setaddresseeName(local.json[i][key]);
+                                this.setAddresseeName(local.json[i][key]);
                             }
 
                             if('#key#' eq 'baseAddress') {
-
-                                var keyCom = 'baseAddress';
-
-                                var keyObj = createObject("component", '#keyCom#');
-                                this.setbaseAddress(keyObj.deserialize(local.json[i][key]));
+                                var keyObj = createObject("component", 'baseAddress');
+                                this.setBaseAddress(keyObj.deserialize(local.json[i][key]));
                             }
 
                             if('#key#' eq 'addressId') {
-
-                                this.setaddressId(local.json[i][key]);
+                                this.setAddressId(local.json[i][key]);
                             }
                         }
                     }
