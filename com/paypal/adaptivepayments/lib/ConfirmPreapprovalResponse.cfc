@@ -6,7 +6,7 @@
 
         public ConfirmPreapprovalResponse function init(ResponseEnvelope responseEnvelope="") hint="I initialize the component and return myself" output="false" {
 
-            this.setresponseEnvelope(arguments.responseEnvelope);
+            this.setResponseEnvelope(arguments.responseEnvelope);
 
             return this;
         }
@@ -60,7 +60,7 @@
 
                         var keyObj = createObject("component", 'responseEnvelope');
 
-                        this.setresponseEnvelope(keyObj.deserialize(local.json[key]));
+                        this.setResponseEnvelope(keyObj.deserialize(local.json[key]));
                     }
 
                     if('#key#' eq 'error') {
@@ -74,7 +74,7 @@
 
                     if(NOT isStruct(local.json[i])) {
 
-                        this.setresponseEnvelope(local.json[i]);
+                        this.setResponseEnvelope(local.json[i]);
                     }
 
                     if(isStruct(local.json[i])) {
@@ -84,7 +84,7 @@
 
                                 var keyObj = createObject("component", 'responseEnvelope');
 
-                                this.setresponseEnvelope(keyObj.deserialize(local.json[i][key]));
+                                this.setResponseEnvelope(keyObj.deserialize(local.json[i][key]));
                             }
                         }
                     }
