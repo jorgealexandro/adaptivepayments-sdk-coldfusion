@@ -61,12 +61,14 @@
                     if('#key#' eq 'receiver') {
 
                         var keyObj = createObject("component", 'receiver');
+
                         this.setReceiver(keyObj.deserialize(local.json[key]));
                     }
 
                     if('#key#' eq 'error') {
 
                         var keyObj = createObject("component", 'ErrorData');
+
                         this.setError(keyObj.deserialize(local.json[key]));
                     }
                 }
@@ -86,13 +88,13 @@
                             if('#key#' eq 'receiver') {
 
                                 var keyObj = createObject("component", 'receiver');
-                                this.setreceiver(keyObj.deserialize(local.json[i][key]));
+                                this.setReceiver(keyObj.deserialize(local.json[i][key]));
                             }
 
                             if('#key#' eq 'error') {
 
                                 var keyObj = createObject("component", 'ErrorData');
-                                this.seterror(keyObj.deserialize(local.json[i][key]));
+                                this.setError(keyObj.deserialize(local.json[i][key]));
                             }
                         }
                     }

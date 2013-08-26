@@ -1,858 +1,502 @@
+<cfscript>
+    component name="PayRequest" output="false" hint="I define the properties and methods" {
 
-		<cfscript>
-		component name="PayRequest" output="false"  hint="I define the properties and methods"
-		{
-			property name="error"  type="ErrorData" display="error" required="no" hint="";
-			
-			property name="requestEnvelope"  type="RequestEnvelope" display="requestEnvelope" required="yes" hint="";
-			
-			property name="clientDetails"  type="ClientDetailsType" display="clientDetails" required="no" hint="";
-			
-			property name="actionType"  type="string" display="actionType" required="yes" hint="";
-			
-			property name="cancelUrl"  type="string" display="cancelUrl" required="yes" hint="";
-			
-			property name="currencyCode"  type="string" display="currencyCode" required="yes" hint="";
-			
-			property name="feesPayer"  type="string" display="feesPayer" required="no" hint="";
-			
-			property name="ipnNotificationUrl"  type="string" display="ipnNotificationUrl" required="no" hint="";
-			
-			property name="memo"  type="string" display="memo" required="no" hint="";
-			
-			property name="pin"  type="string" display="pin" required="no" hint="";
-			
-			property name="preapprovalKey"  type="string" display="preapprovalKey" required="no" hint="";
-			
-			property name="receiverList"  type="ReceiverList" display="receiverList" required="yes" hint="";
-			
-			property name="reverseAllParallelPaymentsOnError"  type="boolean" display="reverseAllParallelPaymentsOnError" required="no" hint="";
-			
-			property name="senderEmail"  type="string" display="senderEmail" required="no" hint="";
-			
-			property name="returnUrl"  type="string" display="returnUrl" required="yes" hint="";
-			
-			property name="trackingId"  type="string" display="trackingId" required="no" hint="";
-			
-			property name="fundingConstraint"  type="FundingConstraint" display="fundingConstraint" required="no" hint="";
-			
-			property name="sender"  type="SenderIdentifier" display="sender" required="no" hint="";
-			
-			
-			
-			public PayRequest function init(  RequestEnvelope requestEnvelope="", string actionType="", string cancelUrl="", string currencyCode="", ReceiverList receiverList="", string returnUrl="")
-				hint="I initialize the component and return myself" 
-			 	output="false" {
-				
-				
-				
-						this.setrequestEnvelope(arguments.requestEnvelope);
-					
-				
-				
-				
-				
-				
-						this.setactionType(arguments.actionType);
-					
-				
-				
-				
-						this.setcancelUrl(arguments.cancelUrl);
-					
-				
-				
-				
-						this.setcurrencyCode(arguments.currencyCode);
-					
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-						this.setreceiverList(arguments.receiverList);
-					
-				
-				
-				
-				
-				
-				
-				
-						this.setreturnUrl(arguments.returnUrl);
-					
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				return this;  
-			}
-			
-			public void function setError(ErrorData error)
-			{
-				this.error = arguments.error;
-			}  
-				
-			public ErrorData function getError()
-			{
-				return this.error;
-			} 
-			
-			
-			public void function setrequestEnvelope(RequestEnvelope requestEnvelope)
-			{
-				this.requestEnvelope = arguments.requestEnvelope;
-			}  
-				
-			public RequestEnvelope function getrequestEnvelope()
-			{
-				return this.requestEnvelope;
-			} 
-			
-			
-			
-			public void function setclientDetails(ClientDetailsType clientDetails)
-			{
-				this.clientDetails = arguments.clientDetails;
-			}  
-				
-			public ClientDetailsType function getclientDetails()
-			{
-				return this.clientDetails;
-			} 
-			
-			
-			
-			public void function setactionType(string actionType)
-			{
-				this.actionType = arguments.actionType;
-			}  
-				
-			public string function getactionType()
-			{
-				return this.actionType;
-			} 
-			
-			
-			
-			public void function setcancelUrl(string cancelUrl)
-			{
-				this.cancelUrl = arguments.cancelUrl;
-			}  
-				
-			public string function getcancelUrl()
-			{
-				return this.cancelUrl;
-			} 
-			
-			
-			
-			public void function setcurrencyCode(string currencyCode)
-			{
-				this.currencyCode = arguments.currencyCode;
-			}  
-				
-			public string function getcurrencyCode()
-			{
-				return this.currencyCode;
-			} 
-			
-			
-			
-			public void function setfeesPayer(string feesPayer)
-			{
-				this.feesPayer = arguments.feesPayer;
-			}  
-				
-			public string function getfeesPayer()
-			{
-				return this.feesPayer;
-			} 
-			
-			
-			
-			public void function setipnNotificationUrl(string ipnNotificationUrl)
-			{
-				this.ipnNotificationUrl = arguments.ipnNotificationUrl;
-			}  
-				
-			public string function getipnNotificationUrl()
-			{
-				return this.ipnNotificationUrl;
-			} 
-			
-			
-			
-			public void function setmemo(string memo)
-			{
-				this.memo = arguments.memo;
-			}  
-				
-			public string function getmemo()
-			{
-				return this.memo;
-			} 
-			
-			
-			
-			public void function setpin(string pin)
-			{
-				this.pin = arguments.pin;
-			}  
-				
-			public string function getpin()
-			{
-				return this.pin;
-			} 
-			
-			
-			
-			public void function setpreapprovalKey(string preapprovalKey)
-			{
-				this.preapprovalKey = arguments.preapprovalKey;
-			}  
-				
-			public string function getpreapprovalKey()
-			{
-				return this.preapprovalKey;
-			} 
-			
-			
-			
-			public void function setreceiverList(ReceiverList receiverList)
-			{
-				this.receiverList = arguments.receiverList;
-			}  
-				
-			public ReceiverList function getreceiverList()
-			{
-				return this.receiverList;
-			} 
-			
-			
-			
-			public void function setreverseAllParallelPaymentsOnError(boolean reverseAllParallelPaymentsOnError)
-			{
-				this.reverseAllParallelPaymentsOnError = arguments.reverseAllParallelPaymentsOnError;
-			}  
-				
-			public boolean function getreverseAllParallelPaymentsOnError()
-			{
-				return this.reverseAllParallelPaymentsOnError;
-			} 
-			
-			
-			
-			public void function setsenderEmail(string senderEmail)
-			{
-				this.senderEmail = arguments.senderEmail;
-			}  
-				
-			public string function getsenderEmail()
-			{
-				return this.senderEmail;
-			} 
-			
-			
-			
-			public void function setreturnUrl(string returnUrl)
-			{
-				this.returnUrl = arguments.returnUrl;
-			}  
-				
-			public string function getreturnUrl()
-			{
-				return this.returnUrl;
-			} 
-			
-			
-			
-			public void function settrackingId(string trackingId)
-			{
-				this.trackingId = arguments.trackingId;
-			}  
-				
-			public string function gettrackingId()
-			{
-				return this.trackingId;
-			} 
-			
-			
-			
-			public void function setfundingConstraint(FundingConstraint fundingConstraint)
-			{
-				this.fundingConstraint = arguments.fundingConstraint;
-			}  
-				
-			public FundingConstraint function getfundingConstraint()
-			{
-				return this.fundingConstraint;
-			} 
-			
-			
-			
-			public void function setsender(SenderIdentifier sender)
-			{
-				this.sender = arguments.sender;
-			}  
-				
-			public SenderIdentifier function getsender()
-			{
-				return this.sender;
-			} 
-			
-			
-			
-			
-			public struct function getStruct()
-			{
-				local.struct = structNew();
-				
-				if(  isDefined( 'this.error' ) )
-					local.struct["error"] = getError().getStruct();
-						
-				
-				if(  isDefined( 'this.requestEnvelope' ) )
-					
-						local.struct["requestEnvelope"] = getrequestEnvelope().getStruct();
-					
-						
-				
-				if(  isDefined( 'this.clientDetails' ) )
-					
-						local.struct["clientDetails"] = getclientDetails().getStruct();
-					
-						
-				
-				if(  isDefined( 'this.actionType' ) )
-					
-						local.struct["actionType"] = getactionType();
-					
-						
-				
-				if(  isDefined( 'this.cancelUrl' ) )
-					
-						local.struct["cancelUrl"] = getcancelUrl();
-					
-						
-				
-				if(  isDefined( 'this.currencyCode' ) )
-					
-						local.struct["currencyCode"] = getcurrencyCode();
-					
-						
-				
-				if(  isDefined( 'this.feesPayer' ) )
-					
-						local.struct["feesPayer"] = getfeesPayer();
-					
-						
-				
-				if(  isDefined( 'this.ipnNotificationUrl' ) )
-					
-						local.struct["ipnNotificationUrl"] = getipnNotificationUrl();
-					
-						
-				
-				if(  isDefined( 'this.memo' ) )
-					
-						local.struct["memo"] = getmemo();
-					
-						
-				
-				if(  isDefined( 'this.pin' ) )
-					
-						local.struct["pin"] = getpin();
-					
-						
-				
-				if(  isDefined( 'this.preapprovalKey' ) )
-					
-						local.struct["preapprovalKey"] = getpreapprovalKey();
-					
-						
-				
-				if(  isDefined( 'this.receiverList' ) )
-					
-						local.struct["receiverList"] = getreceiverList().getStruct();
-					
-						
-				
-				if(  isDefined( 'this.reverseAllParallelPaymentsOnError' ) )
-					
-						local.struct["reverseAllParallelPaymentsOnError"] = getreverseAllParallelPaymentsOnError();
-					
-						
-				
-				if(  isDefined( 'this.senderEmail' ) )
-					
-						local.struct["senderEmail"] = getsenderEmail();
-					
-						
-				
-				if(  isDefined( 'this.returnUrl' ) )
-					
-						local.struct["returnUrl"] = getreturnUrl();
-					
-						
-				
-				if(  isDefined( 'this.trackingId' ) )
-					
-						local.struct["trackingId"] = gettrackingId();
-					
-						
-				
-				if(  isDefined( 'this.fundingConstraint' ) )
-					
-						local.struct["fundingConstraint"] = getfundingConstraint().getStruct();
-					
-						
-				
-				if(  isDefined( 'this.sender' ) )
-					
-						local.struct["sender"] = getsender().getStruct();
-					
-						
-				
-				return local.struct;
-			} 
-			
-			public any function serialize()
-			{
-				return serializeJSON(this.getStruct());
-			} 
-			
-			public any function deserialize(any jsonObj)
-			{
-				if(isJSON(jsonObj))
-				{
-					local.json = deserializeJSON(jsonObj);
-				} else {
-					local.json = jsonObj;
-				}
-				
-				if(isStruct(local.json))
-				{
-				
-					for(key in local.json)
-					{
-						
-						
-						
-						if('#key#' eq 'requestEnvelope') {
-						
-							var keyCom = 'requestEnvelope';
-							
-							
-							
-							var keyObj = createObject("component",'#keyCom#');
-							this.setrequestEnvelope( keyObj.deserialize(local.json[key]) );
-							
-						}
-						
-						
-						
-						if('#key#' eq 'clientDetails') {
-						
-							var keyCom = 'clientDetails';
-							
-							
-							
-							var keyObj = createObject("component",'#keyCom#');
-							this.setclientDetails( keyObj.deserialize(local.json[key]) );
-							
-						}
-						
-						
-						
-						if('#key#' eq 'actionType') {
-						
-							this.setactionType(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'cancelUrl') {
-						
-							this.setcancelUrl(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'currencyCode') {
-						
-							this.setcurrencyCode(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'feesPayer') {
-						
-							this.setfeesPayer(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'ipnNotificationUrl') {
-						
-							this.setipnNotificationUrl(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'memo') {
-						
-							this.setmemo(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'pin') {
-						
-							this.setpin(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'preapprovalKey') {
-						
-							this.setpreapprovalKey(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'receiverList') {
-						
-							var keyCom = 'receiverList';
-							
-							
-							
-							var keyObj = createObject("component",'#keyCom#');
-							this.setreceiverList( keyObj.deserialize(local.json[key]) );
-							
-						}
-						
-						
-						
-						if('#key#' eq 'reverseAllParallelPaymentsOnError') {
-						
-							this.setreverseAllParallelPaymentsOnError(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'senderEmail') {
-						
-							this.setsenderEmail(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'returnUrl') {
-						
-							this.setreturnUrl(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'trackingId') {
-						
-							this.settrackingId(local.json[key]);
-						}
-						
-						
-						
-						if('#key#' eq 'fundingConstraint') {
-						
-							var keyCom = 'fundingConstraint';
-							
-							
-							
-							var keyObj = createObject("component",'#keyCom#');
-							this.setfundingConstraint( keyObj.deserialize(local.json[key]) );
-							
-						}
-						
-						
-						
-						if('#key#' eq 'sender') {
-						
-							var keyCom = 'sender';
-							
-							keyCom = 'SenderIdentifier';
-							
-							
-							var keyObj = createObject("component",'#keyCom#');
-							this.setsender( keyObj.deserialize(local.json[key]) );
-							
-						}
-						
-						
-						if('#key#' eq 'error')
-						{	
-							var keyObj = createObject("component",'ErrorData');
-							this.setError( keyObj.deserialize(local.json[key]) );	
-						}
-						
-					}
-				} else if (isArray(local.json)) {
-				
-					for( i = 1; i lte ArrayLen(local.json); i = i + 1)
-					{
-					
-						if(NOT isStruct(local.json[i]))
-						{
-							
-							this.setrequestEnvelope(local.json[i]);
-							
-							this.setclientDetails(local.json[i]);
-							
-							this.setactionType(local.json[i]);
-							
-							this.setcancelUrl(local.json[i]);
-							
-							this.setcurrencyCode(local.json[i]);
-							
-							this.setfeesPayer(local.json[i]);
-							
-							this.setipnNotificationUrl(local.json[i]);
-							
-							this.setmemo(local.json[i]);
-							
-							this.setpin(local.json[i]);
-							
-							this.setpreapprovalKey(local.json[i]);
-							
-							this.setreceiverList(local.json[i]);
-							
-							this.setreverseAllParallelPaymentsOnError(local.json[i]);
-							
-							this.setsenderEmail(local.json[i]);
-							
-							this.setreturnUrl(local.json[i]);
-							
-							this.settrackingId(local.json[i]);
-							
-							this.setfundingConstraint(local.json[i]);
-							
-							this.setsender(local.json[i]);
-							
-						}
-					
-						if(isStruct(local.json[i]))
-						{
-							for(key in local.json[i])
-							{
-							
-							
-							
-							if('#key#' eq 'requestEnvelope') {
-							
-                             var keyCom = 'requestEnvelope';
-								
-								
-								var keyObj = createObject("component",'#keyCom#');
-								this.setrequestEnvelope( keyObj.deserialize(local.json[i][key]) );
-								
-							
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'clientDetails') {
-							
-                             var keyCom = 'clientDetails';
-								
-								
-								var keyObj = createObject("component",'#keyCom#');
-								this.setclientDetails( keyObj.deserialize(local.json[i][key]) );
-								
-							
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'actionType') {
-							
-								this.setactionType(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'cancelUrl') {
-							
-								this.setcancelUrl(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'currencyCode') {
-							
-								this.setcurrencyCode(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'feesPayer') {
-							
-								this.setfeesPayer(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'ipnNotificationUrl') {
-							
-								this.setipnNotificationUrl(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'memo') {
-							
-								this.setmemo(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'pin') {
-							
-								this.setpin(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'preapprovalKey') {
-							
-								this.setpreapprovalKey(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'receiverList') {
-							
-                             var keyCom = 'receiverList';
-								
-								
-								var keyObj = createObject("component",'#keyCom#');
-								this.setreceiverList( keyObj.deserialize(local.json[i][key]) );
-								
-							
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'reverseAllParallelPaymentsOnError') {
-							
-								this.setreverseAllParallelPaymentsOnError(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'senderEmail') {
-							
-								this.setsenderEmail(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'returnUrl') {
-							
-								this.setreturnUrl(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'trackingId') {
-							
-								this.settrackingId(local.json[i][key]);
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'fundingConstraint') {
-							
-                             var keyCom = 'fundingConstraint';
-								
-								
-								var keyObj = createObject("component",'#keyCom#');
-								this.setfundingConstraint( keyObj.deserialize(local.json[i][key]) );
-								
-							
-							
-							}
-											
-							
-							
-							
-							if('#key#' eq 'sender') {
-							
-                             var keyCom = 'sender';
-								
-								keyCom = 'SenderIdentifier';
-								
-								var keyObj = createObject("component",'#keyCom#');
-								this.setsender( keyObj.deserialize(local.json[i][key]) );
-								
-							
-							
-							}
-											
-							
-								
-							}
-						}
-					
-					}
-				
-				}
-				
-				return this;
-			} 
-			
-		}
-		</cfscript>
-		
+        property name="error" type="ErrorData" display="error" required="no" hint="";
+        property name="requestEnvelope" type="RequestEnvelope" display="requestEnvelope" required="yes" hint="";
+        property name="clientDetails" type="ClientDetailsType" display="clientDetails" required="no" hint="";
+        property name="actionType" type="string" display="actionType" required="yes" hint="";
+        property name="cancelUrl" type="string" display="cancelUrl" required="yes" hint="";
+        property name="currencyCode" type="string" display="currencyCode" required="yes" hint="";
+        property name="feesPayer" type="string" display="feesPayer" required="no" hint="";
+        property name="ipnNotificationUrl" type="string" display="ipnNotificationUrl" required="no" hint="";
+        property name="memo" type="string" display="memo" required="no" hint="";
+        property name="pin" type="string" display="pin" required="no" hint="";
+        property name="preapprovalKey" type="string" display="preapprovalKey" required="no" hint="";
+        property name="receiverList" type="ReceiverList" display="receiverList" required="yes" hint="";
+        property name="reverseAllParallelPaymentsOnError" type="boolean" display="reverseAllParallelPaymentsOnError" required="no" hint="";
+        property name="senderEmail" type="string" display="senderEmail" required="no" hint="";
+        property name="returnUrl" type="string" display="returnUrl" required="yes" hint="";
+        property name="trackingId" type="string" display="trackingId" required="no" hint="";
+        property name="fundingConstraint" type="FundingConstraint" display="fundingConstraint" required="no" hint="";
+        property name="sender" type="SenderIdentifier" display="sender" required="no" hint="";
+
+        public PayRequest function init(RequestEnvelope requestEnvelope="", string actionType="", string cancelUrl="", string currencyCode="", ReceiverList receiverList="", string returnUrl="") hint="I initialize the component and return myself" output="false" {
+
+            this.setRequestEnvelope(arguments.requestEnvelope);
+
+            this.setActionType(arguments.actionType);
+
+            this.setCancelUrl(arguments.cancelUrl);
+
+            this.setCurrencyCode(arguments.currencyCode);
+
+            this.setReceiverList(arguments.receiverList);
+
+            this.setReturnUrl(arguments.returnUrl);
+
+            return this;
+        }
+
+        public void function setError(ErrorData error) {
+            this.error = arguments.error;
+        }
+
+        public ErrorData function getError() {
+            return this.error;
+        }
+
+        public void function setRequestEnvelope(RequestEnvelope requestEnvelope) {
+            this.requestEnvelope = arguments.requestEnvelope;
+        }
+
+        public RequestEnvelope function getRequestEnvelope() {
+            return this.requestEnvelope;
+        }
+
+        public void function setClientDetails(ClientDetailsType clientDetails) {
+            this.clientDetails = arguments.clientDetails;
+        }
+
+        public ClientDetailsType function getClientDetails() {
+            return this.clientDetails;
+        }
+
+        public void function setActionType(string actionType) {
+            this.actionType = arguments.actionType;
+        }
+
+        public string function getActionType() {
+            return this.actionType;
+        }
+
+        public void function setCancelUrl(string cancelUrl) {
+            this.cancelUrl = arguments.cancelUrl;
+        }
+
+        public string function getCancelUrl() {
+            return this.cancelUrl;
+        }
+
+        public void function setCurrencyCode(string currencyCode) {
+            this.currencyCode = arguments.currencyCode;
+        }
+
+        public string function getCurrencyCode() {
+            return this.currencyCode;
+        }
+
+        public void function setFeesPayer(string feesPayer) {
+            this.feesPayer = arguments.feesPayer;
+        }
+
+        public string function getFeesPayer() {
+            return this.feesPayer;
+        }
+
+        public void function setIpnNotificationUrl(string ipnNotificationUrl) {
+            this.ipnNotificationUrl = arguments.ipnNotificationUrl;
+        }
+
+        public string function getIpnNotificationUrl() {
+            return this.ipnNotificationUrl;
+        }
+
+        public void function setMemo(string memo) {
+            this.memo = arguments.memo;
+        }
+
+        public string function getMemo() {
+            return this.memo;
+        }
+
+        public void function setPin(string pin) {
+            this.pin = arguments.pin;
+        }
+
+        public string function getPin() {
+            return this.pin;
+        }
+
+        public void function setPreapprovalKey(string preapprovalKey) {
+            this.preapprovalKey = arguments.preapprovalKey;
+        }
+
+        public string function getPreapprovalKey() {
+            return this.preapprovalKey;
+        }
+
+        public void function setReceiverList(ReceiverList receiverList) {
+            this.receiverList = arguments.receiverList;
+        }
+
+        public ReceiverList function getReceiverList() {
+            return this.receiverList;
+        }
+
+        public void function setReverseAllParallelPaymentsOnError(boolean reverseAllParallelPaymentsOnError) {
+            this.reverseAllParallelPaymentsOnError = arguments.reverseAllParallelPaymentsOnError;
+        }
+
+        public boolean function getReverseAllParallelPaymentsOnError() {
+            return this.reverseAllParallelPaymentsOnError;
+        }
+
+        public void function setSenderEmail(string senderEmail) {
+            this.senderEmail = arguments.senderEmail;
+        }
+
+        public string function getSenderEmail() {
+            return this.senderEmail;
+        }
+
+        public void function setReturnUrl(string returnUrl) {
+            this.returnUrl = arguments.returnUrl;
+        }
+
+        public string function getReturnUrl() {
+            return this.returnUrl;
+        }
+
+        public void function setTrackingId(string trackingId) {
+            this.trackingId = arguments.trackingId;
+        }
+
+        public string function getTrackingId() {
+            return this.trackingId;
+        }
+
+        public void function setFundingConstraint(FundingConstraint fundingConstraint) {
+            this.fundingConstraint = arguments.fundingConstraint;
+        }
+
+        public FundingConstraint function getFundingConstraint() {
+            return this.fundingConstraint;
+        }
+
+        public void function setSender(SenderIdentifier sender) {
+            this.sender = arguments.sender;
+        }
+
+        public SenderIdentifier function getSender() {
+            return this.sender;
+        }
+
+        public struct function getStruct() {
+            local.struct = structNew();
+
+            if(isDefined('this.error')) {
+                local.struct["error"] = getError().getStruct();
+            }
+
+            if(isDefined('this.requestEnvelope')) {
+                local.struct["requestEnvelope"] = getRequestEnvelope().getStruct();
+            }
+
+            if(isDefined('this.clientDetails')) {
+                local.struct["clientDetails"] = getClientDetails().getStruct();
+            }
+
+            if(isDefined('this.actionType')) {
+                local.struct["actionType"] = getActionType();
+            }
+
+            if(isDefined('this.cancelUrl')) {
+                local.struct["cancelUrl"] = getCancelUrl();
+            }
+
+            if(isDefined('this.currencyCode')) {
+                local.struct["currencyCode"] = getCurrencyCode();
+            }
+
+            if(isDefined('this.feesPayer')) {
+                local.struct["feesPayer"] = getFeesPayer();
+            }
+
+            if(isDefined('this.ipnNotificationUrl')) {
+                local.struct["ipnNotificationUrl"] = getIpnNotificationUrl();
+            }
+
+            if(isDefined('this.memo')) {
+                local.struct["memo"] = getMemo();
+            }
+
+            if(isDefined('this.pin')) {
+                local.struct["pin"] = getPin();
+            }
+
+            if(isDefined('this.preapprovalKey')) {
+                local.struct["preapprovalKey"] = getPreapprovalKey();
+            }
+
+            if(isDefined('this.receiverList')) {
+                local.struct["receiverList"] = getReceiverList().getStruct();
+            }
+
+            if(isDefined('this.reverseAllParallelPaymentsOnError')) {
+                local.struct["reverseAllParallelPaymentsOnError"] = getReverseAllParallelPaymentsOnError();
+            }
+
+            if(isDefined('this.senderEmail')) {
+                local.struct["senderEmail"] = getSenderEmail();
+            }
+
+            if(isDefined('this.returnUrl')) {
+                local.struct["returnUrl"] = getReturnUrl();
+            }
+
+            if(isDefined('this.trackingId')) {
+                local.struct["trackingId"] = getTrackingId();
+            }
+
+            if(isDefined('this.fundingConstraint')) {
+                local.struct["fundingConstraint"] = getFundingConstraint().getStruct();
+            }
+
+            if(isDefined('this.sender')) {
+                local.struct["sender"] = getSender().getStruct();
+            }
+
+            return local.struct;
+        }
+
+        public any function serialize() {
+            return serializeJSON(this.getStruct());
+        }
+
+        public any function deserialize(any jsonObj) {
+            if(isJSON(jsonObj)) {
+                local.json = deserializeJSON(jsonObj);
+            } else {
+                local.json = jsonObj;
+            }
+
+            if(isStruct(local.json)) {
+
+                for(key in local.json) {
+
+                    if('#key#' eq 'requestEnvelope') {
+
+                        var keyObj = createObject("component", 'requestEnvelope');
+
+                        this.setRequestEnvelope(keyObj.deserialize(local.json[key]));
+                    }
+
+                    if('#key#' eq 'clientDetails') {
+
+                        var keyObj = createObject("component", 'clientDetails');
+
+                        this.setClientDetails(keyObj.deserialize(local.json[key]));
+                    }
+
+                    if('#key#' eq 'actionType') {
+                        this.setActionType(local.json[key]);
+                    }
+
+                    if('#key#' eq 'cancelUrl') {
+                        this.setCancelUrl(local.json[key]);
+                    }
+
+                    if('#key#' eq 'currencyCode') {
+                        this.setCurrencyCode(local.json[key]);
+                    }
+
+                    if('#key#' eq 'feesPayer') {
+                        this.setFeesPayer(local.json[key]);
+                    }
+
+                    if('#key#' eq 'ipnNotificationUrl') {
+                        this.setIpnNotificationUrl(local.json[key]);
+                    }
+
+                    if('#key#' eq 'memo') {
+                        this.setMemo(local.json[key]);
+                    }
+
+                    if('#key#' eq 'pin') {
+                        this.setPin(local.json[key]);
+                    }
+
+                    if('#key#' eq 'preapprovalKey') {
+                        this.setPreapprovalKey(local.json[key]);
+                    }
+
+                    if('#key#' eq 'receiverList') {
+
+                        var keyObj = createObject("component", 'receiverList');
+
+                        this.setReceiverList(keyObj.deserialize(local.json[key]));
+                    }
+
+                    if('#key#' eq 'reverseAllParallelPaymentsOnError') {
+                        this.setReverseAllParallelPaymentsOnError(local.json[key]);
+                    }
+
+                    if('#key#' eq 'senderEmail') {
+                        this.setSenderEmail(local.json[key]);
+                    }
+
+                    if('#key#' eq 'returnUrl') {
+                        this.setReturnUrl(local.json[key]);
+                    }
+
+                    if('#key#' eq 'trackingId') {
+                        this.setTrackingId(local.json[key]);
+                    }
+
+                    if('#key#' eq 'fundingConstraint') {
+
+                        var keyObj = createObject("component", 'fundingConstraint');
+
+                        this.setFundingConstraint(keyObj.deserialize(local.json[key]));
+                    }
+
+                    if('#key#' eq 'sender') {
+
+                        var keyObj = createObject("component", 'SenderIdentifier');
+
+                        this.setSnder(keyObj.deserialize(local.json[key]));
+                    }
+
+                    if('#key#' eq 'error') {
+
+                        var keyObj = createObject("component", 'ErrorData');
+
+                        this.setError(keyObj.deserialize(local.json[key]));
+                    }
+                }
+            } else if(isArray(local.json)) {
+
+                for(i = 1; i lte ArrayLen(local.json); i = i + 1) {
+
+                    if(NOT isStruct(local.json[i])) {
+
+                        this.setRequestEnvelope(local.json[i]);
+
+                        this.setClientDetails(local.json[i]);
+
+                        this.setActionType(local.json[i]);
+
+                        this.setCancelUrl(local.json[i]);
+
+                        this.setCurrencyCode(local.json[i]);
+
+                        this.setFeesPayer(local.json[i]);
+
+                        this.setIpnNotificationUrl(local.json[i]);
+
+                        this.setMemo(local.json[i]);
+
+                        this.setPin(local.json[i]);
+
+                        this.setPreapprovalKey(local.json[i]);
+
+                        this.setReceiverList(local.json[i]);
+
+                        this.setReverseAllParallelPaymentsOnError(local.json[i]);
+
+                        this.setSenderEmail(local.json[i]);
+
+                        this.setReturnUrl(local.json[i]);
+
+                        this.setTrackingId(local.json[i]);
+
+                        this.setFundingConstraint(local.json[i]);
+
+                        this.setSender(local.json[i]);
+                    }
+
+                    if(isStruct(local.json[i])) {
+                        for(key in local.json[i]) {
+
+                            if('#key#' eq 'requestEnvelope') {
+
+                                var keyObj = createObject("component", 'requestEnvelope');
+
+                                this.setrequestEnvelope(keyObj.deserialize(local.json[i][key]));
+                            }
+
+                            if('#key#' eq 'clientDetails') {
+
+                                var keyObj = createObject("component", 'clientDetails');
+
+                                this.setClientDetails(keyObj.deserialize(local.json[i][key]));
+                            }
+
+                            if('#key#' eq 'actionType') {
+                                this.setActionType(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'cancelUrl') {
+                                this.setCancelUrl(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'currencyCode') {
+                                this.setCurrencyCode(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'feesPayer') {
+                                this.setFeesPayer(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'ipnNotificationUrl') {
+                                this.setIpnNotificationUrl(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'memo') {
+                                this.setMemo(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'pin') {
+                                this.setPin(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'preapprovalKey') {
+                                this.setPreapprovalKey(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'receiverList') {
+
+                                var keyObj = createObject("component", 'receiverList');
+
+                                this.setReceiverList(keyObj.deserialize(local.json[i][key]));
+                            }
+
+                            if('#key#' eq 'reverseAllParallelPaymentsOnError') {
+                                this.setReverseAllParallelPaymentsOnError(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'senderEmail') {
+                                this.setSenderEmail(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'returnUrl') {
+                                this.setReturnUrl(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'trackingId') {
+                                this.setTrackingId(local.json[i][key]);
+                            }
+
+                            if('#key#' eq 'fundingConstraint') {
+
+                                var keyObj = createObject("component", 'fundingConstraint');
+
+                                this.setfundingConstraint(keyObj.deserialize(local.json[i][key]));
+                            }
+
+                            if('#key#' eq 'sender') {
+
+                                var keyObj = createObject("component", 'SenderIdentifier');
+
+                                this.setSender(keyObj.deserialize(local.json[i][key]));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return this;
+        }
+
+    }
+</cfscript>

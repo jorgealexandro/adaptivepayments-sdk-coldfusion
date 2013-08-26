@@ -108,6 +108,7 @@
 
                     if('#key#' eq 'error') {
 
+                        // TODO: does the errorStruct need to be set to local var?
                         errorStruct = StructNew();
                         errorStruct['payError'] = local.json[key];
                         local.json[key] = errorStruct;
