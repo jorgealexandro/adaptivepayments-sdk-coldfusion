@@ -1,7 +1,7 @@
 <cfscript>
     component name="ErrorList" output="false" hint="I define the properties and methods" {
-        property name="error" type="ErrorData" display="error" required="no" hint="";
 
+        property name="error" type="ErrorData" display="error" required="no" hint="";
         property name="error" type="ErrorData" display="error" required="yes" hint="";
 
         variables.items = ArrayNew(1);
@@ -42,11 +42,11 @@
         public struct function getStruct() {
             local.struct = structNew();
 
-            if(isDefined('this.error')){
+            if(isDefined('this.error')) {
                 local.struct["error"] = getError().getStruct();
             }
 
-            if(isDefined('this.error')){
+            if(isDefined('this.error')) {
                 local.struct["error"] = getItems();
             }
 
@@ -81,7 +81,6 @@
                 for(i = 1; i lte ArrayLen(local.json); i = i + 1) {
 
                     if(NOT isStruct(local.json[i])) {
-
                         this.seterror(local.json[i]);
                     }
 

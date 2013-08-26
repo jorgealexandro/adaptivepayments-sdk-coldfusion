@@ -9,7 +9,7 @@
 
         public FaultMessage function init(ResponseEnvelope responseEnvelope="") hint="I initialize the component and return myself" output="false" {
 
-            this.setresponseEnvelope(arguments.responseEnvelope);
+            this.setResponseEnvelope(arguments.responseEnvelope);
 
             return this;
         }
@@ -54,7 +54,7 @@
             }
 
             if(isDefined('this.responseEnvelope')) {
-                local.struct["responseEnvelope"] = getresponseEnvelope().getStruct();
+                local.struct["responseEnvelope"] = getResponseEnvelope().getStruct();
             }
 
             if(isDefined('this.error')) {
@@ -82,14 +82,14 @@
                     if('#key#' eq 'responseEnvelope') {
 
                         var keyObj = createObject("component", 'responseEnvelope');
-                        this.setresponseEnvelope(keyObj.deserialize(local.json[key]));
+                        this.setResponseEnvelope(keyObj.deserialize(local.json[key]));
                     }
 
                     if('#key#' eq 'error') {
 
                         var keyObj = createObject("component", 'ErrorData');
 
-                        this.seterror(keyObj.deserialize(local.json[key]));
+                        this.setError(keyObj.deserialize(local.json[key]));
                         this.addItem(keyObj.deserialize(local.json[key]));
                     }
                 }
@@ -99,9 +99,9 @@
 
                     if(NOT isStruct(local.json[i])) {
 
-                        this.setresponseEnvelope(local.json[i]);
+                        this.setResponseEnvelope(local.json[i]);
 
-                        this.seterror(local.json[i]);
+                        this.setError(local.json[i]);
                     }
 
                     if(isStruct(local.json[i])) {
@@ -111,14 +111,14 @@
 
                                 var keyObj = createObject("component", 'responseEnvelope');
 
-                                this.setresponseEnvelope(keyObj.deserialize(local.json[i][key]));
+                                this.setResponseEnvelope(keyObj.deserialize(local.json[i][key]));
                             }
 
                             if('#key#' eq 'error') {
 
                                 var keyObj = createObject("component", 'ErrorData');
 
-                                this.seterror(keyObj.deserialize(local.json[i][key]));
+                                this.setError(keyObj.deserialize(local.json[i][key]));
                                 this.addItem(keyObj.deserialize(local.json[i][key]));
                             }
                         }
