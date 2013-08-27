@@ -389,7 +389,7 @@
             }
 
             if(isDefined('this.sender')) {
-                ocal.struct["sender"] = getSender().getStruct();
+                local.struct["sender"] = getSender().getStruct();
             }
 
             return local.struct;
