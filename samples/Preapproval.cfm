@@ -45,7 +45,7 @@
 	<![endif]-->
 	
 
-<script type="text/javascript" src="Common/sdk_functions.js"></script>
+
 <script src="assets/javascripts/jquery-1.7.1.min.js"></script>
 
 </head>
