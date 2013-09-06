@@ -48,20 +48,7 @@
 				return this.responseEnvelope;
 			} 
 			
-			
-			
-			public void function seterror(ErrorData error)
-			{
-				this.error = arguments.error;
-			}  
-				
-			public ErrorData function geterror()
-			{
-				return this.error;
-			} 
-			
-			
-			
+	
 			public any function addItem(ErrorData  item)
 			{
 				if(Compare('ErrorData','string') eq 0)
@@ -151,7 +138,7 @@
 							
 							
 							var keyObj = createObject("component",'#keyCom#');
-							this.seterror( keyObj.deserialize(local.json[key]) );
+							this.setError( keyObj.deserialize(local.json[key]) );
 							
 							this.addItem(keyObj.deserialize(local.json[key]));
 						}
@@ -174,7 +161,7 @@
 							
 							this.setresponseEnvelope(local.json[i]);
 							
-							this.seterror(local.json[i]);
+							this.setError(local.json[i]);
 							
 						}
 					
@@ -207,7 +194,7 @@
 								keyCom = 'ErrorData';
 								
 								var keyObj = createObject("component",'#keyCom#');
-								this.seterror( keyObj.deserialize(local.json[i][key]) );
+								this.setError( keyObj.deserialize(local.json[i][key]) );
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								
