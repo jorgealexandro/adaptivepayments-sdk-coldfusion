@@ -14,7 +14,7 @@
 				
 				
 				
-						this.seterror(arguments.error);
+						this.setError(arguments.error);
 					
 						addItem(arguments.error);
 					
@@ -36,14 +36,14 @@
 			} 
 			
 			
-			public void function seterror(ErrorData error)
+			public void function setError(ErrorData error)
 			{
 				this.error = arguments.error;
 			}  
 				
-			public ErrorData function geterror()
+			public ErrorData function getError()
 			{
-				return this.error;
+				return tis.error;
 			} 
 			
 			
@@ -118,7 +118,7 @@
 							
 							
 							var keyObj = createObject("component",'#keyCom#');
-							this.seterror( keyObj.deserialize(local.json[key]) );
+							this.setError( keyObj.deserialize(local.json[key]) );
 							
 							this.addItem(keyObj.deserialize(local.json[key]));
 						}
@@ -139,7 +139,7 @@
 						if(NOT isStruct(local.json[i]))
 						{
 							
-							this.seterror(local.json[i]);
+							this.setError(local.json[i]);
 							
 						}
 					
@@ -157,7 +157,7 @@
 								keyCom = 'ErrorData';
 								
 								var keyObj = createObject("component",'#keyCom#');
-								this.seterror( keyObj.deserialize(local.json[i][key]) );
+								this.setError( keyObj.deserialize(local.json[i][key]) );
 								
 									this.addItem(keyObj.deserialize(local.json[i][key]));
 								

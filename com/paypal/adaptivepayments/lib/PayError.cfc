@@ -21,7 +21,7 @@
 				
 				
 				
-						this.seterror(arguments.error);
+						this.setError(arguments.error);
 					
 				
 				
@@ -51,21 +51,7 @@
 				return this.receiver;
 			} 
 			
-			
-			
-			public void function seterror(ErrorData error)
-			{
-				this.error = arguments.error;
-			}  
-				
-			public ErrorData function geterror()
-			{
-				return this.error;
-			} 
-			
-			
-			
-			
+					
 			public struct function getStruct()
 			{
 				local.struct = structNew();
@@ -82,7 +68,7 @@
 				
 				if(  isDefined( 'this.error' ) )
 					
-						local.struct["error"] = geterror().getStruct();
+						local.struct["error"] = getError().getStruct();
 					
 						
 				
@@ -132,7 +118,7 @@
 							
 							
 							var keyObj = createObject("component",'#keyCom#');
-							this.seterror( keyObj.deserialize(local.json[key]) );
+							this.setError( keyObj.deserialize(local.json[key]) );
 							
 						}
 						
@@ -154,7 +140,7 @@
 							
 							this.setreceiver(local.json[i]);
 							
-							this.seterror(local.json[i]);
+							this.setError(local.json[i]);
 							
 						}
 					
@@ -187,7 +173,7 @@
 								keyCom = 'ErrorData';
 								
 								var keyObj = createObject("component",'#keyCom#');
-								this.seterror( keyObj.deserialize(local.json[i][key]) );
+								this.setError( keyObj.deserialize(local.json[i][key]) );
 								
 							
 							
