@@ -1,4 +1,3 @@
-
 		<cfscript>
 		component name="PayError" output="false"  hint="I define the properties and methods"
 		{
@@ -6,10 +5,7 @@
 			
 			property name="receiver"  type="Receiver" display="receiver" required="yes" hint="";
 			
-			property name="error"  type="ErrorData" display="error" required="yes" hint="";
-			
-			
-			
+
 			public PayError function init(  Receiver receiver="", ErrorData error="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
