@@ -1,4 +1,3 @@
-
 		<cfscript>
 		component name="PaymentInfoList" output="false"  hint="I define the properties and methods"
 		{
@@ -11,17 +10,11 @@
 			public PaymentInfoList function init(  PaymentInfo paymentInfo="")
 				hint="I initialize the component and return myself" 
 			 	output="false" {
-				
-				
-				
+
 						this.setpaymentInfo(arguments.paymentInfo);
 					
 						addItem(arguments.paymentInfo);
-					
-				
-				
-				
-				
+	
 				return this;  
 			}
 			
@@ -93,38 +86,37 @@
 				return serializeJSON(this.getStruct());
 			} 
 			
-			public any function deserialize(any jsonObj)
-			{
-				if(isJSON(jsonObj))
-				{
+			public any function deserialize(any jsonObj){
+				if(isJSON(jsonObj)){
 					local.json = deserializeJSON(jsonObj);
 				} else {
 					local.json = jsonObj;
 				}
 				
-				if(isStruct(local.json))
-				{
+				if(isStruct(local.json)){
 				
-					for(key in local.json)
-					{
-						
-						
+					for(key in local.json){
+
 						
 						if('#key#' eq 'paymentInfo') {
 						
-							var keyCom = 'paymentInfo';
-							
-							
-							
-							var keyObj = createObject("component",'#keyCom#');
-							this.setpaymentInfo( keyObj.deserialize(local.json[key]) );
-							
-							this.addItem(keyObj.deserialize(local.json[key]));
+							var keyObj = createObject("component", 'paymentInfo');
+
+				                        if(isArray(local.json[key])){
+				                            for(i = 1; i lte ArrayLen(local.json[key]); i = i + 1) {
+				
+				                                this.setPaymentInfo(keyObj.deserialize(local.json[key][i]));
+				                                this.addItem(keyObj.deserialize(local.json[key][i]));
+				                            }
+				
+				                        }else{
+				                             this.setPaymentInfo(keyObj.deserialize(local.json[key]));
+				                             this.addItem(keyObj.deserialize(local.json[key]));
+				                        }
 						}
 						
 						
-						if('#key#' eq 'error')
-						{	
+						if('#key#' eq 'error'){	
 							var keyObj = createObject("component",'ErrorData');
 							this.setError( keyObj.deserialize(local.json[key]) );	
 						}
@@ -132,34 +124,30 @@
 					}
 				} else if (isArray(local.json)) {
 				
-					for( i = 1; i lte ArrayLen(local.json); i = i + 1)
-					{
+					for( i = 1; i lte ArrayLen(local.json); i = i + 1){
 					
-						if(NOT isStruct(local.json[i]))
-						{
+						if(NOT isStruct(local.json[i])){
 							
 							this.setpaymentInfo(local.json[i]);
 							
 						}
 					
-						if(isStruct(local.json[i]))
-						{
-							for(key in local.json[i])
-							{
-							
-							
+						if(isStruct(local.json[i])){
+							for(key in local.json[i]){
 							
 							if('#key#' eq 'paymentInfo') {
 							
-                             var keyCom = 'paymentInfo';
-								
-								
-								var keyObj = createObject("component",'#keyCom#');
-								this.setpaymentInfo( keyObj.deserialize(local.json[i][key]) );
-								
-									this.addItem(keyObj.deserialize(local.json[i][key]));
-								
-							
+				                             var keyObj = createObject("component", 'paymentInfo');
+				
+				                                if(isArray(local.json[i][key])) {
+				                                    for(j = 1; j lte ArrayLen(local.json[key]); j = j + 1) {
+				                                        this.setPaymentInfo(keyObj.deserialize(local.json[i][key][j]));
+				                                        this.addItem(keyObj.deserialize(local.json[i][key][j]));
+				                                    }
+				                                } else {
+				                                    this.setPaymentInfo(keyObj.deserialize(local.json[i][key]));
+				                                    this.addItem(keyObj.deserialize(local.json[i][key]));
+				                                }
 							
 							}
 											
